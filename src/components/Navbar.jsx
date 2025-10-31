@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react'
 import { Menu, X, MapPin, Clock, Phone, Mail, Search } from 'lucide-react';
 import images from '../assets/images';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Scroll and Header Logic State
   const [showTopBar, setShowTopBar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Track if viewport is large (lg / desktop). We'll treat >=1024px as lg.
   const [isLargeScreen, setIsLargeScreen] = useState(
     typeof window !== 'undefined' ? window.innerWidth >= 1024 : false
   );
@@ -24,42 +23,45 @@ const Navbar = () => {
     { name: 'Contact Us', href: '/contact-us' },
   ];
 
-  const topBarHeight = 36; // Approx. height of the top bar (used only on large screens)
+  const topBarHeight = 36; // Approx. height of the top bar
   const mainNavHeight = 80; // Height of the main nav bar
   const fixedSpacerHeight = topBarHeight + mainNavHeight;
 
+  // --- Effect: Handle window resize for responsiveness ---
   useEffect(() => {
-    // Resize handler to set isLargeScreen
     const onResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024);
+      const newIsLargeScreen = window.innerWidth >= 1024;
+      setIsLargeScreen(newIsLargeScreen);
+      // Close menu if switching to desktop view
+      if (newIsLargeScreen && isOpen) {
+        setIsOpen(false);
+      }
     };
-    // run on mount
     onResize();
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
-  }, []);
+  }, [isOpen]);
 
+  // --- Effect: Handle scroll behavior (hide/show top bar and shadow) ---
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     const scrollThreshold = 10;
 
     setIsScrolled(currentScrollY > scrollThreshold);
 
-    // Only show/hide top bar behavior on large screens (where the top bar exists)
     if (isLargeScreen) {
-      if (currentScrollY > lastScrollY) {
+      if (currentScrollY > lastScrollY) { // Scrolling down
         if (currentScrollY > 10) {
           setShowTopBar(false);
         }
-      } else if (currentScrollY < lastScrollY) {
+      } else if (currentScrollY < lastScrollY) { // Scrolling up
         setShowTopBar(true);
       }
       if (currentScrollY <= scrollThreshold) {
         setShowTopBar(true);
       }
     } else {
-      // On small screens ensure top bar is always hidden because it's not rendered
-      setShowTopBar(false);
+      setShowTopBar(false); // Top bar is never shown on mobile
     }
 
     setLastScrollY(currentScrollY);
@@ -72,20 +74,25 @@ const Navbar = () => {
         window.removeEventListener('scroll', handleScroll);
       };
     }
-  }, [lastScrollY, isLargeScreen]); // rebind when isLargeScreen changes
+  }, [lastScrollY, isLargeScreen]);
 
-  // Only apply the -translate-y-9 when top bar exists (large screens) AND showTopBar=false.
-  // On mobile (isLargeScreen === false) we don't translate the header.
   const headerTranslate =
     isLargeScreen && !showTopBar ? '-translate-y-9' : 'translate-y-0';
 
-  // Spacer height should reflect what's actually visible:
-  // - On large screens both top bar + main nav might be present (reserve fixedSpacerHeight)
-  // - On small screens only main nav is visible so reserve mainNavHeight
   const spacerHeightStyle = {
     height: `${isLargeScreen ? fixedSpacerHeight : mainNavHeight}px`,
   };
 
+  // --- Menu Visibility Class for Animation ---
+  // If we rely on conditional rendering {isOpen && (...)}, the transition won't be smooth.
+  // Instead, we use a single component and toggle the 'translate-x' class.
+  // We'll use the backdrop's conditional rendering to manage the full-screen overlay.
+  const mobileMenuClasses = `
+    fixed top-0 right-0 w-1/2 h-screen bg-[#052E53] z-50 
+    transition-transform duration-300 ease-in-out transform 
+    ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+  `;
+  
   return (
     <>
       {/* Main Fixed Header Container */}
@@ -136,9 +143,9 @@ const Navbar = () => {
               {/* Logo Section */}
               <div className="flex items-center">
                 <div className="flex items-center space-x-2">
-                 <Link to='/'>
-                     <img src={images.logo} className="h-10 w-25" alt="CCRL Logo" />
-                 </Link>
+                  <Link to='/'>
+                    <img src={images.logo} className="h-10 w-25" alt="CCRL Logo" />
+                  </Link>
                   <span className="text-2xl font-bold tracking-wider text-white">CCRL</span>
                 </div>
               </div>
@@ -146,13 +153,13 @@ const Navbar = () => {
               {/* Desktop Menu Links */}
               <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
-                    href={link.href}
+                    to={link.href}
                     className="inline-flex items-center px-1 pt-1 text-sm font-medium text-white hover:text-orange-500 transition duration-150 ease-in-out border-b-2 border-transparent hover:border-orange-500"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
 
@@ -163,7 +170,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button (Hamburger/X) */}
               <div className="flex items-center lg:hidden">
                 <button
                   onClick={() => setIsOpen(!isOpen)}
@@ -176,28 +183,38 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
-          {/* Mobile Menu (search input removed) */}
-          {isOpen && (
-            <div className="absolutet t-10 r-0 w-[50%] h-screen lg:hidden bg-[#052E53]" id="mobile-menu">
-              <div className="pt-2 pb-3 space-y-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-100 hover:text-orange-500 hover:bg-gray-800 hover:border-orange-500"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-
-                {/* Removed mobile search input per your request */}
-              </div>
-            </div>
-          )}
         </nav>
       </header>
+
+      {/* 📱 MOBILE MENU AND CLICK-OUTSIDE BACKDROP */}
+      {/* Renders a full-screen backdrop when isOpen is true */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 w-full h-full bg-black/50 z-40 lg:hidden" // z-40 is below the menu (z-50)
+          onClick={() => setIsOpen(false)} // 🔑 Closes menu when backdrop is clicked
+        >
+          <div 
+            className={mobileMenuClasses}
+            id="mobile-menu"
+            // 🔑 Prevents the click from bubbling up to the backdrop and closing the menu immediately
+            onClick={(e) => e.stopPropagation()} 
+          >
+            <div className="pt-24 pb-3 space-y-1"> {/* Increased padding to clear the fixed header */}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  // Close menu after clicking a link
+                  onClick={() => setIsOpen(false)}
+                  className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-100 hover:text-orange-500 hover:bg-gray-800 hover:border-orange-500"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Spacer Element: always present, height depends on screen size */}
       <div style={spacerHeightStyle} />

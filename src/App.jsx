@@ -4,6 +4,10 @@ import { Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Homepage from './pages/Homepage'
 import Footer from './components/Footer'
+import Services from './pages/Services'
+import Contact from './pages/Contact'
+import HowitWorks from './pages/HowitWorks'
+import Brands from './pages/Brands'
 
 function App() {
 
@@ -13,6 +17,10 @@ function App() {
        <Routes>
 
          <Route path='/' element={<Homepage/>} />
+         <Route path='/services' element={<Services/>} />
+         <Route path='/contact-us' element={<Contact/>} />
+         <Route path='/how-it-works' element={<HowitWorks/>} />
+         <Route path='/our-brands' element={<Brands/>} />
        </Routes>
        <Footer/>
     </>

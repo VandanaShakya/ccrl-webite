@@ -9,8 +9,8 @@ const Footer = () => {
   // Define a reusable Icon component for consistency and styling in contact info
   const ContactIcon = ({ icon: Icon, text }) => (
     <p className="flex items-start">
-      <Icon className="mr-2 h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" /> 
-      <span className="break-words">{text}</span>
+      <Icon className="mr-2 h-5 w-5 text-blue-500 mt-0.5" /> 
+      <span className="">{text}</span>
     </p>
   );
 

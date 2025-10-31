@@ -9,9 +9,40 @@ import oven1 from './services/oven1.webp'
 import oven2 from './services/oven2.webp'
 import relationalOven from './services/relationaloven.png'
 
+import homeBackImage from './homepage/homeimage.png'
+
+
+// oven service  //
+import serviceOven1 from './allservices/oven1.webp'
+import serviceOven2 from './allservices/oven2.webp'
+import serviceOven3 from './allservices/oven3.jpg'
+import serviceOven4 from './allservices/oven4.jpg'
+import serviceOven5 from './allservices/oven5.avif'
+import mainOven from './allservices/mainoven.jpg'
+import serviceHeroImage from './homepage/servicesbackimage.jpeg'
 
 import stove1 from './services/stove1.png'
 import stove2 from './services/stove2.jpg'
+
+
+// commercial ove //
+import commercialOven1 from './allservices/commercialoven1.jpg'
+import commercialOven2 from './allservices/commercialoven2.webp'
+import commercialOven3 from './allservices/commercialoven3.jpeg'
+import commercialOven4 from './allservices/commercialoven4.jpg'
+import commercialOven5 from './allservices/commercialoven5.jpg'
+
+
+import contactHeroImage from './homepage/contactbackimage.png'
+
+import howWorksBackImage from './homepage/howworksbackimage.png'
+
+// how works page //
+import cooker from './howworks/cooker.png'
+import oven from './howworks/oven.jpg'
+import fryer from './howworks/fryer.avif'
+import dishWasher from './howworks/dishwasher.jpg'
+
 
 const images = {
     logo,
@@ -25,6 +56,38 @@ oven2,
 relationalOven,
 stove1,
 stove2,
+homeBackImage,
+
+//service oven //
+mainOven,
+serviceOven1,
+serviceOven2,
+serviceOven3,
+serviceOven4,
+serviceOven5,
+serviceHeroImage,
+
+
+// commercial oven //
+commercialOven1,
+commercialOven2,
+commercialOven3,
+commercialOven4,
+commercialOven5,
+
+
+// contatc //
+contactHeroImage,
+
+// how works page //
+howWorksBackImage,
+
+// how works //
+cooker,
+oven,
+fryer,
+dishWasher,
+
 }
 
 export default images

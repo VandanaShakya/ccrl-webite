@@ -1,9 +1,9 @@
 import React from 'react';
 // Replaced FontAwesome with Lucide icons, which are typically available in single-file React environments.
 import { 
-  MapPin, Phone, Printer, Mail, Calendar, 
-  Twitter, Facebook, Linkedin, Dribbble, Rss 
+  MapPin, Phone, Mail, Calendar 
 } from 'lucide-react';
+import images from '../assets/images';
 
 const Footer = () => {
   // Define a reusable Icon component for consistency and styling in contact info
@@ -40,48 +40,46 @@ const Footer = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-4">
               {/* Placeholder logo */}
-              <div className="h-8 w-8 bg-blue-500 rounded flex items-center justify-center mr-2">
-                <Dribbble className="h-5 w-5 text-white" />
+              <div className="h-10 w-20  flex items-center justify-center mr-2">
+                <img src={images.logo} className="h-10 w-20 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white uppercase">Industrial</h3>
+              <h3 className="text-xl font-bold text-white uppercase">Commercial <br/> Catering Repairs Ltd</h3>
             </div>
             <p className="text-sm leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et tellus, venenatis sed
-              nisi in, egestas bibendum sem. Nam tempus dolor quis interdum auctor.
-            </p>
+  Commercial Catering Repairs Ltd specializes in providing fast, reliable, and professional repair and maintenance services for all types of commercial kitchen equipment. We ensure minimal downtime and maximum efficiency for your business operations.
+</p>
+
             <div className="space-y-2 text-sm">
-              <ContactIcon icon={MapPin} text="300 Pennsylvania Ave NW, Washington, DC 20006, USA" />
-              <ContactIcon icon={Phone} text="158-985-66-22" />
-              <ContactIcon icon={Printer} text="158-985-66-33" />
-              <ContactIcon icon={Mail} text="mail@domain.com" />
+              <ContactIcon icon={MapPin} text="23 Wexham Close, Luton, Bedfordshire, United Kingdom, LU3 3TU" />
+              <ContactIcon icon={Phone} text=" 03301337762" />
+              <ContactIcon icon={Mail} text="service@pimlicocateringrepairs.co.uk " />
             </div>
           </div>
 
           {/* Column 2: Navigation */}
           <div className="col-span-1">
             <h4 className="text-white text-lg font-semibold mb-4 border-b-2 border-blue-500 pb-2 inline-block">Navigation</h4>
-            <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm mt-4">
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Home</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Features</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> About Us</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Services</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Projects</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> News</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Shop</a>
-              <a href="#" className="hover:text-white transition-colors flex items-center"><span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Contact Us</a>
-            </div>
+         <div className="grid grid-cols-1 gap-y-2 text-sm mt-4">
+  <a href="#" className="hover:text-white transition-colors flex items-center">
+    <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Home
+  </a>
+  <a href="#" className="hover:text-white transition-colors flex items-center">
+    <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> About Us
+  </a>
+  <a href="#" className="hover:text-white transition-colors flex items-center">
+    <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Services
+  </a>
+  <a href="#" className="hover:text-white transition-colors flex items-center">
+    <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Contact Us
+  </a>
+</div>
+
             
             {/* Socialise with us (under Navigation on smaller screens, moves to separate row on larger) */}
             <div className="mt-8 lg:hidden"> {/* Only visible on md and smaller */}
               <h4 className="text-white text-lg font-semibold mb-4 border-b-2 border-blue-500 pb-2 inline-block">Socialise with us</h4>
               <p className="text-sm mb-4">Contact us via social networks</p>
-              <div className="flex space-x-4 text-lg">
-                <SocialLink icon={Twitter} href="#" />
-                <SocialLink icon={Facebook} href="#" />
-                <SocialLink icon={Linkedin} href="#" />
-                <SocialLink icon={Dribbble} href="#" />
-                <SocialLink icon={Rss} href="#" />
-              </div>
+            
             </div>
           </div>
 
@@ -95,7 +93,7 @@ const Footer = () => {
               {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].map(day => (
                 <div key={day} className="flex justify-between">
                   <span>{day}</span>
-                  <span>9am &gt; 5pm</span>
+                  <span>9am &gt; 6pm</span>
                 </div>
               ))}
               <div className="flex justify-between">
@@ -140,28 +138,12 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Separator for Socialise with us section on larger screens */}
-        <div className="hidden lg:block mt-12 pt-8 border-t border-gray-700"> {/* Visible only on lg and larger */}
-          <h4 className="text-white text-lg font-semibold mb-4 border-b-2 border-blue-500 pb-2 inline-block">Socialise with us</h4>
-          <p className="text-sm mb-4">Contact us via social networks</p>
-          <div className="flex space-x-4 text-lg">
-            <SocialLink icon={Twitter} href="#" />
-            <SocialLink icon={Facebook} href="#" />
-            <SocialLink icon={Linkedin} href="#" />
-            <SocialLink icon={Dribbble} href="#" />
-            <SocialLink icon={Rss} href="#" />
-          </div>
-        </div>
+      
 
         {/* Copyright Section */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
           <p>&copy; 2016 Industrial Wordpress Theme - Theme by Anosthemes.com</p>
-          <div className="flex space-x-3 text-lg mt-4 md:mt-0">
-            <SocialButton icon={Twitter} href="#" />
-            <SocialButton icon={Facebook} href="#" />
-            <SocialButton icon={Linkedin} href="#" />
-            <SocialButton icon={Dribbble} href="#" />
-          </div>
+         
         </div>
 
       </div>

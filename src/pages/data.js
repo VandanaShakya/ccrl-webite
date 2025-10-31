@@ -63,35 +63,36 @@ export const projects = [
 
 // testimonials //
 export const testimonials = [
-    {
-      id: 1,
-      name: 'Frank Honest',
-      company: 'Gasco ltd.',
-      imageSrc: images.freez1,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id interdum tellus. In hac habitasse platea dictumst. Vestibulum gravida id arcu at malesuada. Proin dictum auctor ante in condimentum. Nam sollici udin eros quis nulla.',
-    },
-    {
-      id: 2,
-      name: 'Jack Hanover',
-      company: 'Testing company ltd.',
-      imageSrc: images.freez1, 
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id interdum tellus. In hac habitasse platea dictumst. Vestibulum gravida id arcu at malesuada. Proin dictum auctor ante in condimentum. Nam sollici udin eros quis nulla.',
-    },
-    {
-      id: 3,
-      name: 'Sarah Connor',
-      company: 'Cyberdyne Systems',
-      imageSrc: images.freez1,
-      text: 'Finding partners who understand complex engineering challenges is rare. Their team delivered beyond our expectations, providing reliable and scalable solutions every time. Highly recommended for critical projects.',
-    },
-    {
-      id: 4,
-      name: 'Alex Johnson',
-      company: 'Apex Solutions',
-      imageSrc: images.freez1,
-      text: 'The support staff is excellent and highly responsive. They helped us integrate their products seamlessly into our existing infrastructure. A pleasure to work with from start to finish.',
-    },
-  ];
+  {
+    id: 1,
+    name: 'Frank Honest',
+    company: 'Gasco Ltd.',
+    imageSrc: images.testimonial1,
+    text: 'We’ve been working with this team for over a year, and their industrial equipment solutions have consistently delivered top performance. Their professionalism and technical expertise stand out every time.',
+  },
+  {
+    id: 2,
+    name: 'Jack Hanover',
+    company: 'Testing Company Ltd.',
+    imageSrc: images.testimonial2, 
+    text: 'Their attention to detail and commitment to quality made a big difference in our project. From consultation to installation, the process was seamless and well-managed throughout.',
+  },
+  {
+    id: 3,
+    name: 'Sarah Connor',
+    company: 'Cyberdyne Systems',
+    imageSrc: images.testimonial3,
+    text: 'The team provided exceptional service and reliable equipment tailored to our production needs. Their understanding of industrial requirements is second to none. Highly recommended for any large-scale operations.',
+  },
+  {
+    id: 4,
+    name: 'Alex Johnson',
+    company: 'Apex Solutions',
+    imageSrc: images.testimonial4,
+    text: 'We were impressed by their quick support and clear communication. The products exceeded our expectations in both durability and efficiency, making them a trusted long-term partner for our business.',
+  },
+];
+
 
 
   // service //
@@ -147,7 +148,7 @@ export const testimonials = [
     ],
     mission: 'Providing best-in-class frying equipment that prioritizes safety, oil longevity, and superior food texture.',
       mainImage: images.fryerAndChips,
-    galleryImages: ['High-Volume Fryer', 'Oil Filtration System', 'Scuttle Warmer', 'Basket Lift', 'Drain Valve'],
+    galleryImages: [images.serviceFryer1, images.serviceFryer2, images.serviceFryer3, images.serviceFryer4],
     accordionTitles: [
       'Oil Management & Disposal Procedures',
       'Thermostat Accuracy Certification',
@@ -166,7 +167,7 @@ export const testimonials = [
     ],
     mission: 'To equip commercial kitchens with durable, high-performance solid-top ranges for maximum cooking versatility.',
      mainImage: images.solidTopRanges,
-    galleryImages: ['4-Burner Model', 'Ceramic Surface', 'Heat Zone Diagram', 'Control Knobs', 'Maintenance Access'],
+    galleryImages: [images.solidTop1, images.solidTop2, images.solidTop3, images.solidTop4],
     accordionTitles: [
       'Required Gas Line Pressure',
       'Surface Polishing and Care',
@@ -184,8 +185,8 @@ export const testimonials = [
       { subtitle: 'Removable Grates', content: 'Simplified maintenance and cleaning.' }
     ],
     mission: 'Delivering powerful and responsive open-top ranges that meet the high-demand needs of professional cooking.',
-     mainImage: "",
-    galleryImages: ['Open Burner View', 'High-BTU Spec', 'Wok Ring Attachment', 'Pilot Light System', 'Grease Tray'],
+     mainImage: images.solidTopRanges,
+    galleryImages: [images.openTop1, images.solidTop2, images.openTop2, images.solidTop4],
     accordionTitles: [
       'Ventilation Hood Requirements',
       'Burner Head Cleaning Guide',
@@ -204,7 +205,7 @@ export const testimonials = [
     ],
     mission: 'Delivering sanitation solutions that are fast, efficient, and reliable for all commercial needs.',
      mainImage: images.serviceDishWasher,
-    galleryImages: ['Pass-Through Model', 'Undercounter Unit', 'Rinse Aid Dosing', 'Water Pressure Test', 'Filter Baskets'],
+    galleryImages: [images.DishWasher1, images.DishWasher2, images.DishWasher3, images.DishWasher4],
     accordionTitles: [
       'Chemical Dosing and Safety',
       'Water Softener Integration',
@@ -223,7 +224,7 @@ export const testimonials = [
     ],
     mission: 'To provide reliable, energy-efficient water heating solutions for hospitality and catering businesses.',
      mainImage: images.waterBoiler,
-    galleryImages: ['Wall Mounted Unit', 'Countertop Dispenser', 'Filtering System', 'Heating Element', 'Descaling Instructions'],
+    galleryImages: [images.boiler1, images.boiler2, images.boiler3, images.boiler4],
     accordionTitles: [
       'Water Quality and Scaling Prevention',
       'Boiler Tap Maintenance',
@@ -256,8 +257,8 @@ export const testimonials = [
       { subtitle: 'Heavy-Duty Doors', content: 'Designed for high frequency opening and closing.' }
     ],
     mission: 'To deliver reliable, energy-efficient refrigeration that safeguards food quality and complies with all health regulations.',
-     mainImage: images.fredgesWalkIn,
-    galleryImages: [images.freez1, 'Prep Counter Fridge', 'Walk-In Diagram', 'Compressor Unit', 'Temperature Alarm'],
+    mainImage: images.fredgesWalkIn,
+    galleryImages: [images.fridge1, images.fridge2, images.fridge3, images.fridge4],
     
   },
   {
@@ -271,7 +272,8 @@ export const testimonials = [
       { subtitle: 'Durable Casing', content: 'Rugged build for long commercial life.' }
     ],
     mission: 'Providing speed and convenience through robust, easy-to-use commercial microwave technology.',
-    galleryImages: ['Heavy Duty Model', 'Touch Panel Interface', 'Interior Light', 'Ventilation Detail', 'Power Cord Spec'],
+    mainImage: images.microWave,
+    galleryImages: [images.microWave1, images.microWave2, images.microWave3, images.microWave4],
      
   },
   {
@@ -285,8 +287,8 @@ export const testimonials = [
       { subtitle: 'Energy Efficient', content: 'Instant heat prevents energy waste during idle periods.' }
     ],
     mission: 'To supply versatile finishing equipment that adds the perfect final touch to every plate.',
-     mainImage: images.salamanders,
-    galleryImages: ['Electric Salamander', 'Gas Overhead Model', 'Heat Shielding', 'Rack Adjustment', 'Mounting Options'],
+    mainImage: images.salamanders,
+    galleryImages: [images.salamander1, images.salamander2, images.salamander3, images.salamander4],
     
   },
   {
@@ -301,7 +303,7 @@ export const testimonials = [
     ],
     mission: 'Delivering grilling equipment that captures authentic flavor and meets high-volume demands.',
      mainImage: images.charGrills,
-    galleryImages: ['Charbroiler Grate', 'Radiant Heat View', 'Grease Tray System', 'Ignition Mechanism', 'BTU Rating'],
+    galleryImages: [images.chargrill1, images.chargrill2, images.chargrill3, images.chargrill4],
      
   },
   {
@@ -315,7 +317,8 @@ export const testimonials = [
       { subtitle: 'High Volume', content: 'Perfect for large-scale production kitchens.' }
     ],
     mission: 'To provide multi-functional cooking equipment that maximizes kitchen output and flexibility.',
-    galleryImages: ['Tilting Mechanism', 'Large Capacity Pan', 'Temperature Controls', 'Lid and Venting', 'Cleaning Port'],
+      mainImage: images.brattPans,
+    galleryImages: [images.pan1, images.pan2, images.pan3, images.pan4],
      
   },
   {
@@ -329,7 +332,8 @@ export const testimonials = [
       { subtitle: 'Mobile Options', content: 'Wheeled units for flexible kitchen layouts.' }
     ],
     mission: 'Ensuring food quality and safety through precise and reliable hot holding technology.',
-    galleryImages: ['Heated Holding Unit', 'Mobile Hot Cupboard', 'Humidity Dial', 'Internal Racks', 'Temperature Display'],
+      mainImage: images.hotCupboard,
+    galleryImages: [images.cupboard1, images.cupboard2, images.cupboard3, images.cupboard4],
     
   },
   {
@@ -343,7 +347,8 @@ export const testimonials = [
       { subtitle: 'Superior Safety', content: 'No open flame and less residual heat.' }
     ],
     mission: 'To modernize commercial kitchens with the safest, fastest, and most energy-efficient cooking technology available.',
-    galleryImages: ['Countertop Induction', 'Wok Induction', 'Power Consumption', 'Cool Surface', 'Control Interface'],
+      mainImage: images.inductionCooking,
+    galleryImages: [images.inductionCooking1, images.inductionCooking2, images.inductionCooking3, images.inductionCooking4],
     
   },
   {
@@ -357,7 +362,8 @@ export const testimonials = [
       { subtitle: 'Modular Design', content: 'Accepts standard Gastronorm containers.' }
     ],
     mission: 'Providing simple, reliable solutions for holding sauces and prepared foods at the perfect serving temperature.',
-    galleryImages: ['Wet Bain Marie', 'Dry Heat Unit', 'Gastronorm Layout', 'Temperature Sensor', 'Drain Tap'],
+      mainImage: images.bainMaries,
+    galleryImages: [images.bainMaries1, images.bainMaries2, images.bainMaries3, images.bainMaries4],
    
   },
 ];
@@ -403,26 +409,24 @@ export const pricingTiers = [
   {
     name: "STANDARD HOURS",
     subtitle: "(Mon–Fri, 09:00–18:00)",
-    price: "£170",
+    price: "£204",
     zone: "London Zone 2",
-    features: ["+ VAT"],
+   
     buttonStyle: "bg-gray-200 text-gray-700 hover:bg-[#3B82F6] hover:text-white", // Gray button for non-featured
   },
   {
     name: "STANDARD HOURS",
     subtitle: "(Mon–Fri, 09:00–18:00)",
-    price: "£210",
+    price: "£252",
     zone: "London Zone 1",
-    features: ["+ VAT"],
     buttonStyle: "bg-[#3B82F6] text-white hover:bg-blue-600", // Blue button for center feature-like
     isFeatured: true,
   },
   {
     name: "OUT OF HOURS",
     subtitle: "(18:00–09:00)",
-    price: "£300",
+    price: "£360",
     zone: "All Zones",
-    features: ["+ VAT"],
     buttonStyle: "bg-gray-200 text-gray-700 hover:bg-[#3B82F6] hover:text-white", // Gray button for non-featured
   },
 ];
@@ -431,31 +435,132 @@ export const pricingTiers = [
 
 // brands page //
 
-export const brandImages = [
-  {
-    src: images.cooker,
-    alt: 'Industrial Pipes and Tanks',
-    description: 'High-capacity cookers designed for durability and precision.',
-    brandContent: 'Cookers: Blue Seal, Falcon, Rational, Hatco, Electrolux, Welbilt',
-  },
-  {
-    src: images.oven,
-    alt: 'Factory at Night',
-    description: 'Advanced oven systems ensuring consistent results across large batches.',
-    brandContent: 'Ovens: Turbo Fan, Rational, Convotherm',
-  },
-  {
-    src: images.fryer,
-    alt: 'Conveyor Belt System',
-    description: 'Energy-efficient fryers that deliver perfect crispness and reliability.',
-    brandContent: 'Fryers: Blueseal',
-  },
-  {
-    src: images.dishWasher,
-    alt: 'Gear Machinery',
-    description: 'Powerful and hygienic dish and glasswashers built for speed and performance.',
-    brandContent: 'Dish/glasswashers: Winterhalter, Maidaid, Classeq, Meiko',
-  },
+// export const brandImages = [
+//   {
+//     src: images.cooker,
+//     alt: 'Industrial Pipes and Tanks',
+//     description: 'High-capacity cookers designed for durability and precision.',
+//     brandContent: 'Cookers: Blue Seal, Falcon, Rational, Hatco, Electrolux, Welbilt',
+//   },
+//   {
+//     src: images.oven,
+//     alt: 'Factory at Night',
+//     description: 'Advanced oven systems ensuring consistent results across large batches.',
+//     brandContent: 'Ovens: Turbo Fan, Rational, Convotherm',
+//   },
+//   {
+//     src: images.fryer,
+//     alt: 'Conveyor Belt System',
+//     description: 'Energy-efficient fryers that deliver perfect crispness and reliability.',
+//     brandContent: 'Fryers: Blueseal',
+//   },
+//   {
+//     src: images.dishWasher,
+//     alt: 'Gear Machinery',
+//     description: 'Powerful and hygienic dish and glasswashers built for speed and performance.',
+//     brandContent: 'Dish/glasswashers: Winterhalter, Maidaid, Classeq, Meiko',
+//   },
   
+// ];
+
+
+
+
+//expanded brands page //
+
+export const brandsData = [
+  {
+    id: 1,
+    title: "Blue Seal",
+    brands: "Blue Seal is renowned for its durable and high-performance commercial kitchen equipment. Designed for heavy-duty use, their cookers combine power, reliability, and precision for professional kitchens.",
+    image: images.blueSeal,
+  },
+  {
+    id: 2,
+    title: "Falcon",
+    brands: "Falcon cookers are known for their energy efficiency and sleek design. Built to handle the toughest kitchen environments, Falcon delivers consistent results and long-lasting performance.",
+    image: images.falcon,
+  },
+  {
+    id: 3,
+    title: "Rational",
+    brands: "Rational specializes in intelligent cooking systems that simplify commercial food preparation. Their combi ovens are compact, versatile, and deliver perfect results every time.",
+    image: images.rational,
+  },
+  {
+    id: 4,
+    title: "Hatco",
+    brands: "Hatco offers innovative warming and cooking equipment known for quality and dependability. Their cookers and warmers are perfect for busy foodservice environments.",
+    image: images.hacto,
+  },
+  {
+    id: 5,
+    title: "Electrolux",
+    brands: "Electrolux combines advanced technology with modern design. Their commercial cookers are known for precision, energy efficiency, and smart automation features.",
+    image: images.electrolux,
+  },
+  {
+    id: 6,
+    title: "Welbilt",
+    brands: "Welbilt provides cutting-edge catering solutions with a focus on durability and performance. Their cookers are trusted globally for reliability in high-demand commercial kitchens.",
+    image: images.welbilt,
+  },
 ];
 
+// fryer brand //
+export const fryerBrandData = [
+  {
+    id: 1,
+    title: "Turbo Fan",
+    brands:
+      "Turbo Fan ovens are compact, efficient, and perfect for professional baking and roasting. Known for their fast heating and even air circulation, they ensure consistent results every time.",
+    image: images.turbo,
+  },
+  {
+    id: 2,
+    title: "Rational",
+    brands:
+      "Rational ovens feature advanced combi-cooking technology, offering precision and flexibility for any menu. They deliver exceptional performance, energy efficiency, and intelligent control systems.",
+    image: images.rational,
+  },
+  {
+    id: 3,
+    title: "Convotherm",
+    brands:
+      "Convotherm ovens combine innovation with simplicity, providing chefs with powerful steam and convection capabilities. Built for durability, they help achieve perfect cooking consistency and quality.",
+    image: images.convotherm,
+  },
+];
+
+
+// dishwasher//
+export const dishwasherBrandData = [
+  {
+    id: 1,
+    title: "Winterhalter",
+    brands:
+      "Winterhalter dishwashers are engineered for exceptional cleaning performance, energy efficiency, and long service life — ideal for busy commercial kitchens and bars.",
+    image: images.winterhalter,
+  },
+  {
+    id: 2,
+    title: "Maidaid",
+    brands:
+      "Maidaid produces robust glass and dish washing solutions focused on fast cycles, water economy, and dependable performance for hospitality environments.",
+    image: images.maidaid,
+  },
+  {
+    id: 3,
+    title: "Classeq",
+    brands:
+      "Classeq offers compact and powerful dishwashing systems with easy maintenance and consistent wash results — perfect for cafés, restaurants and catering operations.",
+    image: images.classeq,
+  },
+  {
+    id: 4,
+    title: "Meiko",
+    brands:
+      "Meiko delivers high-quality dishwashers with advanced filtration and drying systems, built for hygiene, durability and reduced operating costs in commercial settings.",
+    image: images.meiko,
+  },
+];

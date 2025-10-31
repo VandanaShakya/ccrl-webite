@@ -10,9 +10,9 @@ const Form = () => {
     <div className="bg-white shadow-lg rounded-lg mx-auto max-w-7xl px-4 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
       
       {/* Header and Description */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 pl-2 sm:pl-4">
-        DO CONTACT US
-      </h1>
+     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2B7FFF] mb-2 pl-2 sm:pl-4">
+  CONTACT US
+</h1>
       <p className="text-gray-500 mb-10 sm:mb-12 text-sm sm:text-base leading-relaxed">
         Curabitur maximus feugiat velit, sed dapibus sem auctor quis. Maecenas 
         turpis purus, tincidunt eget mattis ac, placerat sit amet dolor. 

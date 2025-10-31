@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import images from '../assets/images';
 import { projects, testimonials } from './data';
 import Form from '../components/Form';
+import { Link } from 'react-router-dom'
 
 const Homepage = () => {
   // services (Projects Filter Logic)
@@ -106,10 +107,17 @@ const Homepage = () => {
             variants={fadeUp}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="relative px-8 py-3 text-lg font-semibold uppercase tracking-wider text-white rounded-full overflow-hidden transition-all duration-500 ease-out border border-sky-400 hover:text-white shadow-lg group"
+            className="relative px-8 py-3 text-lg font-semibold uppercase tracking-wider hover:bg-[#46c4f7] text-white rounded-full overflow-hidden transition-all duration-500 ease-out border border-sky-400 hover:text-white shadow-lg group"
           >
-            <span className="relative z-10">Get Started</span>
-            <span className="absolute inset-0 bg-sky-600 scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100 rounded-full" />
+         
+
+<Link
+  to="/contact-us"
+  className="inline-block relative overflow-hidden  text-white font-semibold"
+>
+  <span className="relative z-10">Get Started</span>
+</Link>
+
           </motion.button>
         </motion.div>
       </section>
@@ -262,30 +270,39 @@ const Homepage = () => {
           >
             {testimonials.map((t, i) => (
               // NEW CODE - responsive width using Tailwind CSS classes
-              <motion.div
-                key={t.id || i}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05, duration: 0.45 }}
-                // Add 'basis-full' (100%) for mobile/default and 'lg:basis-1/2' (50%) for desktop
-                className="p-2 sm:p-4 flex-shrink-0 flex-grow-0 basis-full lg:basis-1/2"
-              >
-                <div className="bg-gray-50 p-6 h-full">
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                    {/* Image */}
-                    <div className="w-full sm:w-1/3 flex-shrink-0 overflow-hidden">
-                      <img src={t.imageSrc} alt={t.name} className="w-full h-24 object-cover" />
-                    </div>
+      <motion.div
+  key={t.id || i}
+  initial={{ opacity: 0, y: 8 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: i * 0.05, duration: 0.45 }}
+  className="p-3 sm:p-5 flex-shrink-0 flex-grow-0 basis-full lg:basis-1/2"
+>
+  <div className="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+    {/* Stack on mobile, row on larger screens */}
+    <div className="flex flex-col sm:flex-row items-stretch gap-0 sm:gap-4">
+      {/* Image */}
+      <div className=" sm:w-1/3 flex-shrink-0">
+        <img
+          src={t.imageSrc}
+          alt={t.name}
+          loading="lazy"
+          className="h-64 sm:h-full md:h-72 lg:h-80 object-cover rounded-t-lg sm:rounded-l-lg sm:rounded-t-none transition-transform duration-300 transform hover:scale-105"
+        />
+      </div>
 
-                    {/* Text */}
-                    <div className="w-full sm:w-2/3">
-                      <h3 className="font-bold text-lg text-gray-900">{t.name}</h3>
-                      <p className="text-sky-500 text-sm mb-3">{t.company}</p>
-                      <p className="text-gray-700 text-sm leading-relaxed">{t.text}</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+      {/* Text */}
+      <div className="p-5 sm:p-6 flex flex-col justify-center text-center sm:text-left">
+        <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-1">{t.name}</h3>
+        <p className="text-sky-500 text-sm mb-2 font-medium">{t.company}</p>
+        <p className="text-gray-700 text-sm leading-relaxed">{t.text}</p>
+      </div>
+    </div>
+  </div>
+</motion.div>
+
+
+
+
             ))}
           </motion.div>
         </div>

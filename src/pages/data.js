@@ -146,6 +146,7 @@ export const testimonials = [
       { subtitle: 'Ergonomic Design', content: 'Easy to clean and maintain optimal hygiene.' }
     ],
     mission: 'Providing best-in-class frying equipment that prioritizes safety, oil longevity, and superior food texture.',
+      mainImage: images.fryerAndChips,
     galleryImages: ['High-Volume Fryer', 'Oil Filtration System', 'Scuttle Warmer', 'Basket Lift', 'Drain Valve'],
     accordionTitles: [
       'Oil Management & Disposal Procedures',
@@ -164,6 +165,7 @@ export const testimonials = [
       { subtitle: 'Easy Cleaning', content: 'Sealed surface simplifies spill management.' }
     ],
     mission: 'To equip commercial kitchens with durable, high-performance solid-top ranges for maximum cooking versatility.',
+     mainImage: images.solidTopRanges,
     galleryImages: ['4-Burner Model', 'Ceramic Surface', 'Heat Zone Diagram', 'Control Knobs', 'Maintenance Access'],
     accordionTitles: [
       'Required Gas Line Pressure',
@@ -182,6 +184,7 @@ export const testimonials = [
       { subtitle: 'Removable Grates', content: 'Simplified maintenance and cleaning.' }
     ],
     mission: 'Delivering powerful and responsive open-top ranges that meet the high-demand needs of professional cooking.',
+     mainImage: "",
     galleryImages: ['Open Burner View', 'High-BTU Spec', 'Wok Ring Attachment', 'Pilot Light System', 'Grease Tray'],
     accordionTitles: [
       'Ventilation Hood Requirements',
@@ -200,6 +203,7 @@ export const testimonials = [
       { subtitle: 'Guaranteed Sanitation', content: 'Achieving required health standards.' }
     ],
     mission: 'Delivering sanitation solutions that are fast, efficient, and reliable for all commercial needs.',
+     mainImage: images.serviceDishWasher,
     galleryImages: ['Pass-Through Model', 'Undercounter Unit', 'Rinse Aid Dosing', 'Water Pressure Test', 'Filter Baskets'],
     accordionTitles: [
       'Chemical Dosing and Safety',
@@ -218,6 +222,7 @@ export const testimonials = [
       { subtitle: 'Energy Saving Mode', content: 'Reduces consumption during off-peak hours.' }
     ],
     mission: 'To provide reliable, energy-efficient water heating solutions for hospitality and catering businesses.',
+     mainImage: images.waterBoiler,
     galleryImages: ['Wall Mounted Unit', 'Countertop Dispenser', 'Filtering System', 'Heating Element', 'Descaling Instructions'],
     accordionTitles: [
       'Water Quality and Scaling Prevention',
@@ -236,6 +241,7 @@ export const testimonials = [
       { subtitle: 'Modular System', content: 'Flexible configurations for different layouts.' }
     ],
     mission: 'Enhancing food service efficiency and presentation through high-quality, reliable servery equipment.',
+     mainImage: images.serveyUnits,
     galleryImages: ['Heated Gantry', 'Chilled Salad Bar', 'Tray Slide Design', 'Lighting Fixtures', 'Custom Wood Finish'],
   
   },
@@ -250,6 +256,7 @@ export const testimonials = [
       { subtitle: 'Heavy-Duty Doors', content: 'Designed for high frequency opening and closing.' }
     ],
     mission: 'To deliver reliable, energy-efficient refrigeration that safeguards food quality and complies with all health regulations.',
+     mainImage: images.fredgesWalkIn,
     galleryImages: [images.freez1, 'Prep Counter Fridge', 'Walk-In Diagram', 'Compressor Unit', 'Temperature Alarm'],
     
   },
@@ -278,6 +285,7 @@ export const testimonials = [
       { subtitle: 'Energy Efficient', content: 'Instant heat prevents energy waste during idle periods.' }
     ],
     mission: 'To supply versatile finishing equipment that adds the perfect final touch to every plate.',
+     mainImage: images.salamanders,
     galleryImages: ['Electric Salamander', 'Gas Overhead Model', 'Heat Shielding', 'Rack Adjustment', 'Mounting Options'],
     
   },
@@ -292,6 +300,7 @@ export const testimonials = [
       { subtitle: 'Easy Grease Management', content: 'Built-in channels for safe waste disposal.' }
     ],
     mission: 'Delivering grilling equipment that captures authentic flavor and meets high-volume demands.',
+     mainImage: images.charGrills,
     galleryImages: ['Charbroiler Grate', 'Radiant Heat View', 'Grease Tray System', 'Ignition Mechanism', 'BTU Rating'],
      
   },

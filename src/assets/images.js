@@ -44,49 +44,71 @@ import fryer from './howworks/fryer.avif'
 import dishWasher from './howworks/dishwasher.jpg'
 
 
+// service page //
+import solidTopRanges from './allservices/solidtopranges.png'
+import fryerAndChips from './allservices/fryerandchips.jpg'
+import serviceDishWasher from './allservices/dishwasher.png'
+import waterBoiler from './allservices/waterboiler.png'
+import serveyUnits from './allservices/serveyunits.png'
+import fredgesWalkIn from './allservices/fredgeswalkin.png'
+import salamanders from './allservices/salamanders.png'
+import charGrills  from './allservices/chargrills.png'
+
+
 const images = {
     logo,
     heroImage,
     serviceDishwasher1,
-serviceDishwasher2,
-freez1,
-freez2,
-oven1,
-oven2,
-relationalOven,
-stove1,
-stove2,
-homeBackImage,
+    serviceDishwasher2,
+    freez1,
+    freez2,
+    oven1,
+    oven2,
+    relationalOven,
+    stove1,
+    stove2,
+    homeBackImage,
 
-//service oven //
-mainOven,
-serviceOven1,
-serviceOven2,
-serviceOven3,
-serviceOven4,
-serviceOven5,
-serviceHeroImage,
-
-
-// commercial oven //
-commercialOven1,
-commercialOven2,
-commercialOven3,
-commercialOven4,
-commercialOven5,
+    //service oven //
+    mainOven,
+    serviceOven1,
+    serviceOven2,
+    serviceOven3,
+    serviceOven4,
+    serviceOven5,
+    serviceHeroImage,
 
 
-// contatc //
-contactHeroImage,
+    // commercial oven //
+    commercialOven1,
+    commercialOven2,
+    commercialOven3,
+    commercialOven4,
+    commercialOven5,
 
-// how works page //
-howWorksBackImage,
 
-// how works //
-cooker,
-oven,
-fryer,
-dishWasher,
+    // contatc //
+    contactHeroImage,
+
+    // how works page //
+    howWorksBackImage,
+
+    // how works //
+    cooker,
+    oven,
+    fryer,
+    dishWasher,
+
+
+    // service page //
+    solidTopRanges,
+    fryerAndChips,
+    serviceDishWasher,
+    waterBoiler,
+    serveyUnits,
+    fredgesWalkIn,
+    salamanders,
+    charGrills,
 
 }
 

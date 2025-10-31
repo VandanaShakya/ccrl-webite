@@ -7,7 +7,7 @@ const ACCENT_FOCUS_RING = 'focus:ring-blue-500';
 
 const Form = () => {
   return (
-    <div className="bg-white shadow-lg rounded-lg mx-auto max-w-7xl px-2 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
+    <div className="bg-white shadow-lg rounded-lg mx-auto max-w-7xl px-4 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
       
       {/* Header and Description */}
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 pl-2 sm:pl-4">

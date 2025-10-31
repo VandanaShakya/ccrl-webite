@@ -16,11 +16,11 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'How It Works', href: '/how-it-works' },
-    { name: 'About Us', href: '/about-us' },
-    { name: 'Brands We Work On', href: '/our-brands' },
-    { name: 'Contact Us', href: '/contact-us' },
+    { name: 'Services', href: 'services' },
+    { name: 'How It Works', href: 'how-it-works' },
+    { name: 'About Us', href: 'about-us' },
+    { name: 'Brands We Work On', href: 'our-brands' },
+    { name: 'Contact Us', href: 'contact-us' },
   ];
 
   const topBarHeight = 36; // Approx. height of the top bar

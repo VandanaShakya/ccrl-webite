@@ -1,7 +1,9 @@
 // Brands.jsx
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import images from '../assets/images'
 import { brandsData, fryerBrandData, dishwasherBrandData } from './data' // make sure dishwasherBrandData is imported
+import Loader from '../components/Loader';
+
 
 const titleIconMap = {
   "Cookers": (/* same SVGs as before */ <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg> ),
@@ -12,12 +14,24 @@ const titleIconMap = {
 };
 
 const Brands = () => {
+   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
+
   // isolated hover states per grid
   const [hoveredCookerId, setHoveredCookerId] = useState(null);
   const [hoveredOvenId, setHoveredOvenId] = useState(null);
   const [hoveredFryerId, setHoveredFryerId] = useState(null);
   const [hoveredDishwasherId, setHoveredDishwasherId] = useState(null);
 
+
+   useEffect(() => {
+    setTimeout(() => {
+      setData(true);
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  if (loading) return <Loader />;
   // use 7xl width as requested
   const containerClass = "max-w-7xl mx-auto";
 

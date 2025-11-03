@@ -1,20 +1,59 @@
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import { howWorksData, pricingTiers } from './data'
 import images from '../assets/images';
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from 'react-router-dom'
+import Loader from '../components/Loader';
 
 const HowitWorks = () => {
-  const hoverBorderColor = 'hover:border-[#3B82F6]';
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
 
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setData(true);
+      setLoading(false);
+    }, 200);
+    return () => clearTimeout(t);
+  }, []);
+
+  // ref attached to the section we want to observe
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 50%", "end -6%"],
-  });
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const lineOpacity = useTransform(scrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]);
+  // state that will hold the hydrated DOM node (ref.current)
+  const [scrollTarget, setScrollTarget] = useState(null);
+
+  // Use useLayoutEffect so we set the target before paint (more reliable)
+  useLayoutEffect(() => {
+    if (ref.current) {
+      setScrollTarget(ref.current);
+    }
+    // no deps on ref because ref is stable; empty deps run once after mount
+  }, []);
+
+  // Always call useScroll on every render (keeps hooks order stable).
+  // Until scrollTarget exists we pass undefined so useScroll falls back to viewport.
+// set scroll options so tracking begins when section center hits viewport center
+const scrollOptions = scrollTarget
+  ? { target: scrollTarget, offset: ["center center", "end center"] }
+  : undefined;
+
+// always call useScroll (passes undefined until section exists)
+const { scrollYProgress } = useScroll(scrollOptions);
+
+// grow line from 0% to 100% as the section scroll progress goes 0 -> 1
+const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+// keep opacity at 1 through most of the scroll, but fade in at start and fade out at end
+const lineOpacity = useTransform(
+  scrollYProgress,
+  [0, 0.05, 0.95, 1],   // input progress
+  [0, 1, 1, 0]          // output opacity
+);
+
+  if (loading) return <Loader />;
+
+  const hoverBorderColor = 'hover:border-[#3B82F6]';
 
   return (
     <>
@@ -39,99 +78,116 @@ const HowitWorks = () => {
                 Discover how our process transforms your ideas into powerful industrial solutions —
                 from consultation and design to implementation and ongoing support.
               </p>
-
-             
             </div>
           </div>
         </div>
 
         {/* HOW IT WORKS */}
-        <section ref={ref} id="how-it-works" className="bg-gray-50 py-16 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
-            <header className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-3">
-                How It Works
-              </h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Follow these simple steps to book an engineer visit or request a consultation.
-              </p>
-            </header>
+       <section
+  ref={ref}
+  id="how-it-works"
+  className="bg-gray-50 py-16 relative overflow-hidden"
+>
+  <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
+    {/* Header */}
+    <header className="text-center mb-10 md:mb-16">
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-3">
+        How It Works
+      </h2>
+      <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        Follow these simple steps to book an engineer visit or request a
+        consultation.
+      </p>
+    </header>
 
-            <motion.div
-              style={{
-                height: lineHeight,
-                opacity: lineOpacity,
-              }}
-              className="absolute left-1/2 top-32 w-[3px] bg-[#2B7FFF] hidden md:block rounded-full origin-top"
-            ></motion.div>
+    {/* Line Animation - Hidden on Mobile */}
+    <motion.div
+      style={{
+        height: lineHeight,
+        opacity: lineOpacity,
+      }}
+      className="absolute left-1/2 top-32 w-[3px] bg-[#2B7FFF] hidden md:block rounded-full origin-top"
+    ></motion.div>
 
-            <div className="flex flex-col space-y-24 relative">
-              {howWorksData?.map((step, index) => (
-                <div
-                  key={step.number}
-                  className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-                    }`}
-                >
-                  <div
-                    className={`absolute top-1/2 transform -translate-y-1/2 hidden md:block ${index % 2 === 0
-                        ? "left-1/2 w-[120px] h-[2px] bg-[#2B7FFF]"
-                        : "right-1/2 w-[120px] h-[2px] bg-[#2B7FFF]"
-                      }`}
-                  ></div>
+    {/* Steps */}
+    <div className="flex flex-col space-y-0 md:space-y-24 relative">
+      {howWorksData?.map((step, index) => (
+        <div
+          key={step.number}
+          className={`relative mt-5 flex flex-col md:flex-row items-center ${
+            index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+          }`}
+        >
+          {/* Connecting Line - Only Desktop */}
+          <div
+            className={`absolute top-1/2 transform -translate-y-1/2 hidden md:block ${
+              index % 2 === 0
+                ? "left-1/2 w-[120px] h-[2px] bg-[#2B7FFF]"
+                : "right-1/2 w-[120px] h-[2px] bg-[#2B7FFF]"
+            }`}
+          ></div>
 
-                  <div
-                    className={`absolute top-1/2 transform -translate-y-1/2 hidden md:flex items-center justify-center 
-                  w-12 h-12 rounded-full bg-[#2B7FFF] text-white font-bold text-lg shadow-md
-                  ${index % 2 === 0 ? "left-[calc(50%+120px)]" : "right-[calc(50%+120px)]"}`}
-                  >
-                    {step.number}
-                  </div>
-
-                  <div
-                    className={`relative bg-white border border-gray-200 shadow-sm rounded-lg p-6 sm:p-8 w-full md:w-[45%] ${index % 2 === 0 ? "md:ml-[160px]" : "md:mr-[160px]"
-                      }`}
-                  >
-                    <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 space-y-2 text-left">
-              <p className="text-sm text-gray-600 italic">
-                <span className="font-semibold">Note:</span> All prices include congestion
-                charges and parking where applicable.
-              </p>
-              <p className="text-sm text-gray-600 italic">
-                <span className="font-semibold">Note:</span> Call-outs cannot be cancelled
-                within 3 hours of the scheduled time.
-              </p>
-              <p className="text-sm text-gray-600 italic">
-                <span className="font-semibold">Note:</span> A minimum of 3 hours’ notice is
-                required for cancellations. No refunds will be issued for late cancellations.
-              </p>
-            </div>
+          {/* Step Number Circle - Only Desktop */}
+          <div
+            className={`absolute top-1/2 transform -translate-y-1/2 hidden md:flex items-center justify-center 
+              w-12 h-12 rounded-full bg-[#2B7FFF] text-white font-bold text-lg shadow-md
+              ${
+                index % 2 === 0
+                  ? "left-[calc(50%+120px)]"
+                  : "right-[calc(50%+120px)]"
+              }`}
+          >
+            {step.number}
           </div>
-        </section>
+
+          {/* Step Content */}
+          <div
+            className={`relative bg-white border border-gray-200 shadow-sm rounded-lg p-6 sm:p-8 w-full md:w-[45%] ${
+              index % 2 === 0 ? "md:ml-[160px]" : "md:mr-[160px]"
+            }`}
+          >
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
+              {step.title}
+            </h3>
+            <p className="text-gray-600 leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Notes */}
+    <div className="mt-10 md:mt-16 space-y-2 text-left">
+      <p className="text-sm text-gray-600 italic">
+        <span className="font-semibold">Note:</span> All prices include congestion
+        charges and parking where applicable.
+      </p>
+      <p className="text-sm text-gray-600 italic">
+        <span className="font-semibold">Note:</span> Call-outs cannot be cancelled
+        within 3 hours of the scheduled time.
+      </p>
+      <p className="text-sm text-gray-600 italic">
+        <span className="font-semibold">Note:</span> A minimum of 3 hours’ notice is
+        required for cancellations. No refunds will be issued for late cancellations.
+      </p>
+    </div>
+  </div>
+</section>
+
       </div>
 
       {/* pricing section */}
       <div className="p-4 sm:p-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <header className="text-center mb-10">
-         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 text-center mb-4 font-sans">
-  Callout <span className="text-[#2B7FFF] font-serif">Pricing</span>
-</h1>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 text-center mb-4 font-sans">
+              Callout <span className="text-[#2B7FFF] font-serif">Pricing</span>
+            </h1>
 
-<p className="text-gray-600 text-lg max-w-2xl mx-auto">
-  Transparent, upfront, and fair — our callout pricing ensures you know exactly what to expect. 
-  Whether you need urgent support or scheduled maintenance, we offer flexible rates designed to 
-  match your service needs without hidden charges. Quality service, honest pricing — that’s our promise.
-</p>
-
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Transparent, upfront, and fair — our callout pricing ensures you know exactly what to expect.
+              Whether you need urgent support or scheduled maintenance, we offer flexible rates designed to
+              match your service needs without hidden charges. Quality service, honest pricing — that’s our promise.
+            </p>
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 bg-gray-50 border-t border-b border-gray-100 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
@@ -155,13 +211,7 @@ const HowitWorks = () => {
                   <span className="block text-base text-gray-500 mt-1">(including VAT)</span>
                 </div>
 
-                <ul className="space-y-3 text-center mb-10">
-                  <li className="text-xl font-semibold text-gray-700">
-                    {tier.zone}
-                  </li>
-                </ul>
 
-                {/* Use Link (already imported at top) — no inline imports */}
                 <Link to="/contact-us">
                   <button
                     className={`w-full py-3 px-6 rounded-md font-semibold text-lg border transition duration-150 ${tier.buttonStyle}`}

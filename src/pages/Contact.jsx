@@ -1,9 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 import Form from '../components/Form'
 import Map from '../components/Map'
 import images from '../assets/images'
+import Loader from '../components/Loader'
 
 const Contact = () => {
+
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+  
+    useEffect(() => {
+      setTimeout(() => {
+        setData(true);
+        setLoading(false);
+      }, 2000);
+    }, []);
+  
+    if (loading) return <Loader />;
   return (
    <>
     <div className="relative w-full h-[32rem] md:h-[40rem] overflow-hidden">
@@ -21,15 +34,16 @@ const Contact = () => {
     <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex justify-center md:justify-start">
       {/* Text Content */}
       <div className="text-center md:text-left space-y-4">
-      <h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
+<h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
   Contact Us
 </h1>
 <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
-  At Commercial Catering Repairs Ltd, we’re always here to help. Whether you need 
-  expert advice, equipment servicing, or a custom maintenance plan, our team is 
-  ready to assist. Get in touch with us today to discuss your requirements and 
-  keep your kitchen running smoothly.
+  At CCRL, your commercial kitchen is our priority. Whether you need emergency repairs,
+  scheduled servicing or a bespoke maintenance contract, our expert team is on hand
+  to ensure peak performance and minimal downtime. Get in touch today and let us
+  help keep your operations running smoothly and safely.
 </p>
+
 
 
        

@@ -10,16 +10,19 @@ const Form = () => {
     <div className="bg-white shadow-lg rounded-lg mx-auto max-w-7xl px-4 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
       
       {/* Header and Description */}
-     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2B7FFF] mb-2 pl-2 sm:pl-4">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2B7FFF] mb-2 pl-2 sm:pl-4">
   CONTACT US
 </h1>
-      <p className="text-gray-500 mb-10 sm:mb-12 text-sm sm:text-base leading-relaxed">
-        Curabitur maximus feugiat velit, sed dapibus sem auctor quis. Maecenas 
-        turpis purus, tincidunt eget mattis ac, placerat sit amet dolor. 
-        Aenean vel porttitor libero, nec tempor magna. Mauris sed ex at tellus 
-        elementum tempus dignissim ac est. Curabitur maximus feugiat velit, 
-        sed dapibus sem auctor quis.
-      </p>
+<p className="text-gray-500 mb-10 sm:mb-12 text-sm sm:text-base leading-relaxed">
+  Need fast, reliable commercial kitchen support? At CCRL (Commercial Catering Repairs Ltd), 
+  we specialise in the repair, servicing, and maintenance of professional catering equipment. 
+  Whether you require urgent assistance, scheduled maintenance, or expert guidance, our 
+  experienced engineers are here to help.  
+  <br /><br />
+  Reach out to us today — we’ll respond quickly to ensure your business keeps running 
+  smoothly and efficiently.
+</p>
+
 
       {/* Main Content: Info and Form */}
       <div className="flex flex-col lg:flex-row gap-8 sm:gap-10">

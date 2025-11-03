@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { serviceData } from './data';
 import images from '../assets/images';
+import Loader from '../components/Loader';
 
 const CUSTOM_BLUE = '#2B7FFF';
 
@@ -18,6 +19,10 @@ const Footer = () => (
 );
 
 const Services = () => {
+
+const [loading, setLoading] = useState(true); 
+  const [data, setData] = useState(null);
+
   // Use the ID of the first service as the default
   const initialServiceId = serviceData.length > 0 ? serviceData[0].id : null;
   const [activeServiceId, setActiveServiceId] = useState(initialServiceId);
@@ -32,6 +37,14 @@ const Services = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // run once
+   useEffect(() => {
+    setTimeout(() => {
+      setData(true)
+      setLoading(false); 
+    }, 200);
+  }, []);
+
+  if (loading) return <Loader />;
 
   // Utility to safely format placeholder text for generated images
   const formatTextForPlaceholder = (text) =>

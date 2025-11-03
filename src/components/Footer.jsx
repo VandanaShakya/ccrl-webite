@@ -60,16 +60,16 @@ const Footer = () => {
           <div className="col-span-1">
             <h4 className="text-white text-lg font-semibold mb-4 border-b-2 border-blue-500 pb-2 inline-block">Navigation</h4>
          <div className="grid grid-cols-1 gap-y-2 text-sm mt-4">
-  <a href="#" className="hover:text-white transition-colors flex items-center">
+  <a href="/" className="hover:text-white transition-colors flex items-center">
     <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Home
   </a>
-  <a href="#" className="hover:text-white transition-colors flex items-center">
+  <a href="about-us" className="hover:text-white transition-colors flex items-center">
     <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> About Us
   </a>
-  <a href="#" className="hover:text-white transition-colors flex items-center">
+  <a href="services" className="hover:text-white transition-colors flex items-center">
     <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Services
   </a>
-  <a href="#" className="hover:text-white transition-colors flex items-center">
+  <a href="/contact-us" className="hover:text-white transition-colors flex items-center">
     <span className="mr-2 text-blue-500 text-xs font-bold">&gt;</span> Contact Us
   </a>
 </div>
@@ -142,7 +142,11 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
-          <p>&copy; 2016 Industrial Wordpress Theme - Theme by Anosthemes.com</p>
+          <p className="text-sm">
+  © {new Date().getFullYear()} Commercial Catering Repairs Ltd (CCRL). All rights reserved. &nbsp;
+  <a href="/privacy-policy" className="underline">Privacy Policy</a> · <a href="/contact-us" className="underline">Contact</a>
+</p>
+
          
         </div>
 

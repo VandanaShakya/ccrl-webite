@@ -6,17 +6,6 @@ import Loader from '../components/Loader';
 
 const CUSTOM_BLUE = '#2B7FFF';
 
-// Simple Footer Component
-const Footer = () => (
-  <footer className="bg-gray-800 text-white p-6 mt-10 rounded-t-lg shadow-inner">
-    <div className="max-w-7xl mx-auto text-center">
-      <p className="text-sm">
-        &copy; {new Date().getFullYear()} Our Company Name. All rights reserved. | Contact us at info@domain.com
-      </p>
-      <div className="mt-2 text-xs text-gray-400">Privacy Policy | Terms of Service</div>
-    </div>
-  </footer>
-);
 
 const Services = () => {
 
@@ -294,8 +283,7 @@ const [loading, setLoading] = useState(true);
           </div>
         </div>
 
-        {/* Footer */}
-        <Footer />
+       
       </div>
     </>
   );

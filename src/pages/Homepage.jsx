@@ -15,32 +15,35 @@ const Homepage = () => {
     : projects.filter(project => project.category === activeFilter);
 
   // testimonials (Carousel Logic)
+  const total = testimonials.length;
   const [index, setIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
 
   useEffect(() => {
     const updateItemsPerView = () => {
-      // Use a common breakpoint, 'lg' (1024px) or 'md' (768px) is typical for "desktop" view
-      if (window.innerWidth >= 1024) {
-        setItemsPerView(2); // 2 on desktop (lg and up)
-      } else {
-        setItemsPerView(1); // 1 on mobile (below lg)
-      }
+      const newItems = window.innerWidth >= 992 ? 2 : 1; // >=768 => 2, else 1
+      setItemsPerView((prev) => {
+        // if itemsPerView changed, clamp index so it stays in range
+        if (prev !== newItems) {
+          setIndex((currIndex) => {
+            const newMaxIndex = Math.max(0, total - newItems);
+            return Math.min(currIndex, newMaxIndex);
+          });
+        }
+        return newItems;
+      });
     };
 
     updateItemsPerView();
     window.addEventListener("resize", updateItemsPerView);
     return () => window.removeEventListener("resize", updateItemsPerView);
-  }, []);
+  }, [total]);
 
-  // ... (rest of your state and functions are fine)
+  const maxIndex = Math.max(0, total - itemsPerView);
+  const shiftPercent = index * (100 / itemsPerView); // move by one item width
 
-  const total = testimonials.length;
-  const maxIndex = total - itemsPerView;
-  const next = () => { if (index < maxIndex) setIndex(index + 1); };
-  const prev = () => { if (index > 0) setIndex(index - 1); };
-  const shiftPercent = (index * 100) / itemsPerView;
-
+  const prev = () => setIndex((i) => Math.max(0, i - 1));
+  const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
   /* ---------------------------
      Framer Motion Variants
      --------------------------- */
@@ -95,22 +98,22 @@ const Homepage = () => {
           initial="hidden"
           animate="show"
         >
-       <motion.h1
-  variants={heroTitle}
-  className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 md:mb-6 text-center"
->
-  Expert{' '}
-  <span className="text-[#2B7FFF]">Commercial Kitchen Equipment</span>{' '}
-  Repairs & Maintenance
-</motion.h1>
+          <motion.h1
+            variants={heroTitle}
+            className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 md:mb-6 text-center"
+          >
+            Expert{' '}
+            <span className="text-[#2B7FFF]">Commercial Kitchen Equipment</span>{' '}
+            Repairs & Maintenance
+          </motion.h1>
 
 
-<motion.p
-  variants={fadeUp}
-  className="text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto"
->
-  At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly with reliable, efficient, and safety-compliant solutions.
-</motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto"
+          >
+            At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly with reliable, efficient, and safety-compliant solutions.
+          </motion.p>
 
 
 
@@ -120,14 +123,14 @@ const Homepage = () => {
             whileTap={{ scale: 0.98 }}
             className="relative px-8 py-3 text-lg font-semibold uppercase tracking-wider hover:bg-[#46c4f7] text-white rounded-full overflow-hidden transition-all duration-500 ease-out border border-sky-400 hover:text-white shadow-lg group"
           >
-         
 
-<Link
-  to="/contact-us"
-  className="inline-block relative overflow-hidden  text-white font-semibold"
->
-  <span className="relative z-10">Get Started</span>
-</Link>
+
+            <Link
+              to="/contact-us"
+              className="inline-block relative overflow-hidden  text-white font-semibold"
+            >
+              <span className="relative z-10">Get Started</span>
+            </Link>
 
           </motion.button>
         </motion.div>
@@ -240,17 +243,18 @@ const Homepage = () => {
 
       {/* Testimonials Carousel */}
       <section className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-8 bg-white">
+
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 text-center md:text-left">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={containerStagger}>
-            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
-              What Our Clients Say
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-2 tracking-tight">
+              What Our <span className="text-sky-500 font-semibold">Clients</span> Say
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto md:mx-0">
+
+            <motion.p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto md:mx-0">
               Hear from our satisfied customers who’ve experienced our commitment to quality, creativity, and exceptional service firsthand.
             </motion.p>
           </motion.div>
 
-          {/* Navigation Buttons */}
           <div className="flex gap-3 justify-center mt-4 md:mt-0">
             <motion.button
               onClick={prev}
@@ -275,45 +279,38 @@ const Homepage = () => {
           <motion.div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
-              width: `${(total / itemsPerView) * 100}%`,
               transform: `translateX(-${shiftPercent}%)`,
             }}
           >
             {testimonials.map((t, i) => (
-              // NEW CODE - responsive width using Tailwind CSS classes
-      <motion.div
-  key={t.id || i}
-  initial={{ opacity: 0, y: 8 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: i * 0.05, duration: 0.45 }}
-  className="p-3 sm:p-5 flex-shrink-0 flex-grow-0 basis-full lg:basis-1/2"
->
-  <div className="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-    {/* Stack on mobile, row on larger screens */}
-    <div className="flex flex-col sm:flex-row items-stretch gap-0 sm:gap-4">
-      {/* Image */}
-      <div className=" sm:w-1/3 flex-shrink-0">
-        <img
-          src={t.imageSrc}
-          alt={t.name}
-          loading="lazy"
-          className="h-64 sm:h-full md:h-72 lg:h-80 object-cover rounded-t-lg sm:rounded-l-lg sm:rounded-t-none transition-transform duration-300 transform hover:scale-105"
-        />
-      </div>
+              <motion.div
+                key={t.id ?? i}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.45 }}
+                // each item takes exactly (100 / itemsPerView)% of the carousel viewport
+                style={{ flex: `0 0 ${100 / itemsPerView}%` }}
+                className="p-3 sm:p-5"
+              >
+                <div className="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-full">
+                  <div className="flex flex-col sm:flex-row items-stretch gap-0 sm:gap-4 h-full">
+                    <div className="sm:w-1/3 flex-shrink-0">
+                      <img
+                        src={t.imageSrc}
+                        alt={t.name}
+                        loading="lazy"
+                        className="h-64 sm:h-full md:h-72 lg:h-80 object-cover rounded-t-lg sm:rounded-l-lg sm:rounded-t-none transition-transform duration-300 transform hover:scale-105 w-full"
+                      />
+                    </div>
 
-      {/* Text */}
-      <div className="p-5 sm:p-6 flex flex-col justify-center text-center sm:text-left">
-        <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-1">{t.name}</h3>
-        <p className="text-sky-500 text-sm mb-2 font-medium">{t.company}</p>
-        <p className="text-gray-700 text-sm leading-relaxed">{t.text}</p>
-      </div>
-    </div>
-  </div>
-</motion.div>
-
-
-
-
+                    <div className="p-5 sm:p-6 flex flex-col justify-center text-center sm:text-left">
+                      <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-1">{t.name}</h3>
+                      <p className="text-sky-500 text-sm mb-2 font-medium">{t.company}</p>
+                      <p className="text-gray-700 text-sm md:text-base leading-relaxed">{t.text}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

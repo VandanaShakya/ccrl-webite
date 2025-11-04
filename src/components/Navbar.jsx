@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Clock, Phone, Mail, Search } from 'lucide-react';
+import { Menu, X, MapPin, Clock, Phone, Mail } from 'lucide-react';
 import images from '../assets/images';
 import { Link } from 'react-router-dom';
 
@@ -147,12 +147,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* DESKTOP SEARCH ICON */}
-            <div className="hidden lg:flex items-center">
-              <button className="p-2 text-gray-300 hover:text-orange-500">
-                <Search className="h-6 w-6" />
-              </button>
-            </div>
+            
 
             {/* MOBILE MENU BUTTON */}
             <div className="flex items-center lg:hidden">

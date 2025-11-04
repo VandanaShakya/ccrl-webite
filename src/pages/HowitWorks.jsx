@@ -67,7 +67,7 @@ const scrollOptions = scrollTarget
               </h1>
 
               <p className="text-gray-200 text-lg md:text-xl mt-4 leading-relaxed">
-                Discover how our process transforms your ideas into powerful industrial solutions —
+                Discover how our process transforms your ideas into powerful industrial <br /> solutions —
                 from consultation and design to implementation and ongoing support.
               </p>
             </div>
@@ -168,61 +168,75 @@ const scrollOptions = scrollTarget
       </div>
 
       {/* pricing section */}
-      <div className="p-4 sm:p-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <header className="text-center mb-10">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 text-center mb-4 font-sans">
-              Callout <span className="text-[#2B7FFF] font-serif">Pricing</span>
-            </h1>
+     <div className="p-4 sm:p-8 bg-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-10">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 text-center mb-4 font-sans">
+            Callout <span className="text-[#2B7FFF] font-serif">Pricing</span>
+          </h1>
 
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Transparent, upfront, and fair — our callout pricing ensures you know exactly what to expect.
-              Whether you need urgent support or scheduled maintenance, we offer flexible rates designed to
-              match your service needs without hidden charges. Quality service, honest pricing — that’s our promise.
-            </p>
-          </header>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Transparent, upfront, and fair — our callout pricing ensures you know
+            exactly what to expect. Whether you need urgent support or scheduled
+            maintenance, we offer flexible rates designed to match your service
+            needs without hidden charges. Quality service, honest pricing — that’s
+            our promise.
+          </p>
+        </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 bg-gray-50 border-t border-b border-gray-100 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
-            {pricingTiers.map((tier, index) => (
-              <div
-                key={index}
-                className={`p-6 sm:p-10 text-center transition duration-300 border border-transparent ${hoverBorderColor} cursor-pointer 
-                                ${tier.isFeatured ? 'bg-gray-100' : 'bg-white'} 
-                                ${index === 0 ? 'md:rounded-l-xl' : ''} 
-                                ${index === pricingTiers.length - 1 ? 'md:rounded-r-xl' : ''}`}
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 bg-gray-50 border-t border-b border-gray-100 divide-y divide-gray-200 md:divide-y-0 md:divide-x">
+          {pricingTiers.map((tier, index) => (
+            <div
+              key={index}
+              className={`p-6 sm:p-10 text-center transition duration-300 border border-transparent hover:border-[#2B7FFF] cursor-pointer 
+                          ${tier.isFeatured ? "bg-gray-100" : "bg-white"} 
+                          ${index === 0 ? "md:rounded-l-xl" : ""} 
+                          ${index === pricingTiers.length - 1 ? "md:rounded-r-xl" : ""}`}
+            >
+              <h2
+                className={`text-xl font-bold mb-1 ${
+                  tier.isFeatured ? "text-gray-900" : "text-gray-700"
+                }`}
               >
-                <h2 className={`text-xl font-bold mb-1 ${tier.isFeatured ? 'text-gray-900' : 'text-gray-700'}`}>
-                  {tier.name}
-                </h2>
-                <p className="text-sm text-gray-500 mb-6">{tier.subtitle}</p>
+                {tier.name}
+              </h2>
+              <p className="text-sm text-gray-500 mb-6">{tier.subtitle}</p>
 
-                <div className="mb-8">
-                  <span className="text-5xl font-extrabold text-gray-900 leading-none">
-                    {tier.price}
-                  </span>
-                  <span className="block text-base text-gray-500 mt-1">(including VAT)</span>
-                </div>
-
-
-                <Link to="/contact-us">
-                  <button
-                    className={`w-full py-3 px-6 rounded-md font-semibold text-lg border transition duration-150 ${tier.buttonStyle}`}
-                  >
-                    BOOK NOW
-                  </button>
-                </Link>
-
+              <div className="mb-8">
+                <span className="text-5xl font-extrabold text-gray-900 leading-none">
+                  {tier.price}
+                </span>
+                <span className="block text-base text-gray-500 mt-1">
+                  (including VAT)
+                </span>
               </div>
-            ))}
-          </div>
 
-          <div className="mt-8 p-4">
-            <p className="text-sm text-gray-600 text-center italic">
-              <span className="font-semibold">Note:</span> All prices include congestion charges and parking where applicable.
-            </p>
-          </div>
+              {/* BOOK NOW Button */}
+              <Link to="/contact-us">
+                <button
+                  className={`w-full py-3 px-6 rounded-md font-semibold text-lg border transition duration-150 
+                    transform active:scale-95 
+                    focus:outline-none focus:ring-0 active:outline-none active:ring-0 active:bg-transparent 
+                    `}
+                >
+                  BOOK NOW
+                </button>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Note */}
+        <div className="mt-8 p-4">
+          <p className="text-sm text-gray-600 text-center italic">
+            <span className="font-semibold">Note:</span> All prices include congestion
+            charges and parking where applicable.
+          </p>
         </div>
       </div>
+    </div>
     </>
   )
 }

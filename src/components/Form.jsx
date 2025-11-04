@@ -1,7 +1,6 @@
 import React from 'react'
 import { Mail, Phone, MapPin, Globe, Factory, Smartphone } from 'lucide-react';
 
-const ACCENT_COLOR_CLASS = 'text-blue-500';
 const ACCENT_BG_CLASS = 'bg-blue-500 hover:bg-blue-600';
 const ACCENT_FOCUS_RING = 'focus:ring-blue-500';
 
@@ -10,7 +9,7 @@ const Form = () => {
     <div className=" mx-auto max-w-7xl px-4 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
       
       {/* Header and Description */}
-    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2B7FFF] mb-2 pl-2 sm:pl-4">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-sky-500 mb-2 pl-2 sm:pl-4">
   CONTACT US
 </h1>
 <p className="text-gray-500 mb-10 sm:mb-12 text-sm sm:text-base leading-relaxed">
@@ -39,7 +38,7 @@ const Form = () => {
           ].map(({ Icon, text, link, target }, i) => (
             <div key={i}>
               <div className="flex items-start">
-                <div className={`p-2 mr-4 ${ACCENT_COLOR_CLASS}`}>
+                <div className={`p-2 mr-4 text-sky-500`}>
                   <Icon size={20} />
                 </div>
                 <div className="flex-1 pt-1 min-w-0">
@@ -63,37 +62,41 @@ const Form = () => {
         </div>
 
         {/* Contact Form Section */}
-        <div className="w-full lg:w-7/12 xl:w-8/12">
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Name"
-              className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-            />
-            <input
-              type="text"
-              placeholder="Subject"
-              className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-            />
-            <textarea
-              placeholder="Message"
-              rows="8"
-              className={`w-full p-3 sm:p-4 border border-[#2B7FFF] rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-              style={{ minHeight: '200px' }}
-            />
-            <button
-              type="submit"
-              className={`w-full sm:w-auto px-8 py-3 text-white font-semibold rounded-lg ${ACCENT_BG_CLASS} transition duration-150 shadow-md`}
-            >
-              SUBMIT
-            </button>
-          </form>
-        </div>
+       <div className="w-full xl:w-8/12">
+  <form className="space-y-4">
+    <input
+      type="text"
+      placeholder="Name"
+      className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+    />
+    <input
+      type="text"
+      placeholder="Subject"
+      className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+    />
+
+    {/* Reduced height message field */}
+    <textarea
+      placeholder="Message"
+      rows="5"
+      className={`w-full p-3 sm:p-4 border border-[#2B7FFF] rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+      style={{ minHeight: "120px" }}
+    />
+
+    <button
+      type="submit"
+      className={`w-full sm:w-auto px-8 py-3 text-white font-semibold rounded-lg ${ACCENT_BG_CLASS} transition duration-150 shadow-md`}
+    >
+      SUBMIT
+    </button>
+  </form>
+</div>
+
       </div>
     </div>
   );

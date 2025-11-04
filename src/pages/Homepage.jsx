@@ -83,11 +83,12 @@ const Homepage = () => {
       <section className="relative min-h-screen flex items-center justify-center p-4">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
+         <Link to="/">
           <img
             src={images.heroImage}
             alt="Atmospheric background"
             className="w-full h-full object-cover"
-          />
+          /></Link>
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
@@ -140,10 +141,25 @@ const Homepage = () => {
       <section className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={containerStagger} className="mb-10 sm:mb-16">
-            <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              OUR PROJECTS
-            </motion.h1>
-            <motion.div variants={fadeUp} className="w-12 h-1 bg-sky-500 mb-6" />
+          <motion.div
+  variants={fadeUp}
+  className="group inline-block text-left"
+>
+  <motion.h1
+    variants={fadeUp}
+    className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 transition-all duration-300"
+  >
+    OUR PROJECTS
+  </motion.h1>
+
+  <motion.div
+    variants={fadeUp}
+    className="w-20 h-1 bg-sky-500 mb-6 transition-all duration-500 group-hover:w-80"
+  />
+</motion.div>
+
+
+
             <motion.p variants={fadeUp} className="text-gray-600 sm:text-lg leading-relaxed max-w-7xl">
               <strong>About Commercial Catering & Repairs Ltd</strong>
               <br />
@@ -228,15 +244,16 @@ const Homepage = () => {
             <p className="text-base sm:text-lg md:text-xl mb-6 max-w-lg font-light">
               We are dedicated to mastering every repair, ensuring your commercial kitchen runs flawlessly. Our commitment to quality and swift response goes above and beyond, providing a fantastic, reliable experience every time.
             </p>
+<Link to="/contact-us">
 
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded transition duration-300 uppercase tracking-wider shadow-xl text-sm"
+              className="bg-sky-500 hover:bg-sky-600 hover:cursor-pointer text-white font-bold py-3 px-8 rounded transition duration-300 uppercase tracking-wider shadow-xl text-sm"
               aria-label="Contact us for repair service"
             >
               GET REPAIR QUOTE
-            </motion.button>
+            </motion.button></Link>
           </motion.div>
         </div>
       </section>

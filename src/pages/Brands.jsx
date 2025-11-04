@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import images from '../assets/images'
 import { brandsData, fryerBrandData, dishwasherBrandData } from './data' // make sure dishwasherBrandData is imported
 import Loader from '../components/Loader';
+import { motion } from 'framer-motion'
 
 
 const titleIconMap = {
@@ -12,6 +13,11 @@ const titleIconMap = {
   "Dish/glasswashers": ( <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2zM9 14h6m-6 4h6m-6-8h.01M15 11h.01" /></svg> ),
   "default": ( <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.001 2 2.001-2m-2.001 5l2.001 2 2.001-2M12 21V11" /></svg> ),
 };
+ const fadeUp = {
+    hidden: { opacity: 0, y: 18 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
 
 const Brands = () => {
    const [loading, setLoading] = useState(true);
@@ -61,9 +67,13 @@ const Brands = () => {
       {/* MAIN SECTION (7xl width) */}
       <section className={`px-8 py-12 bg-white text-gray-700 ${containerClass}`}>
         <div className="mb-6 group w-fit">
-          <h2 className="text-2xl font-semibold tracking-wide text-black relative w-fit after:content-[''] after:block after:w-12 after:h-[3px] after:bg-[#2B7FFF] after:transition-all after:duration-300 group-hover:after:w-20">
-            BRANDS WE WORK WITH
-          </h2>
+            <motion.h1
+    variants={fadeUp}
+    className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 transition-all duration-300"
+  >
+    Brands We Work With
+  </motion.h1>
+  
         </div>
 
         <p className="max-w-3xl text-sm md:text-base leading-relaxed text-gray-500 mb-8">

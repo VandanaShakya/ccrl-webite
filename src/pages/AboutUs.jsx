@@ -101,8 +101,8 @@ const AboutUs = () => {
             </div>
 
             <div className="order-1 md:order-2">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Our Commitment: Dependable Support, 24/7
+              <h2 className="text-3xl font-semibold text-gray-900 mb-4">
+                Our Commitment: <span className="text-[#2B7FFF] font-semibold">Dependable Support 24/7</span>
               </h2>
               <p className="mt-4 text-lg text-gray-700 leading-relaxed">
                 We take great pride in delivering exceptional service, backed by competitive pricing and reliable workmanship.

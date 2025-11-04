@@ -97,14 +97,17 @@ const Homepage = () => {
         >
        <motion.h1
   variants={heroTitle}
-  className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 md:mb-6"
+  className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 md:mb-6 text-center"
 >
-  Expert Commercial Kitchen Equipment Repairs & Maintenance
+  Expert{' '}
+  <span className="text-[#2B7FFF]">Commercial Kitchen Equipment</span>{' '}
+  Repairs & Maintenance
 </motion.h1>
+
 
 <motion.p
   variants={fadeUp}
-  className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 font-light max-w-3xl mx-auto"
+  className="text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto"
 >
   At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly with reliable, efficient, and safety-compliant solutions.
 </motion.p>

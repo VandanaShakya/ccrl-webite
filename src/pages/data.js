@@ -166,7 +166,7 @@ export const testimonials = [
       { subtitle: 'Easy Cleaning', content: 'Sealed surface simplifies spill management.' }
     ],
     mission: 'To equip commercial kitchens with durable, high-performance solid-top ranges for maximum cooking versatility.',
-     mainImage: images.solidTopRanges,
+     mainImage: images.solidTop4,
     galleryImages: [images.solidTop1, images.solidTop2, images.solidTop3, images.solidTop4],
     accordionTitles: [
       'Required Gas Line Pressure',
@@ -243,7 +243,7 @@ export const testimonials = [
     ],
     mission: 'Enhancing food service efficiency and presentation through high-quality, reliable servery equipment.',
      mainImage: images.serveyUnits,
-    galleryImages: ['Heated Gantry', 'Chilled Salad Bar', 'Tray Slide Design', 'Lighting Fixtures', 'Custom Wood Finish'],
+    galleryImages: [images.servery1, images.servery2, images.servery3, images.servery4],
   
   },
   {

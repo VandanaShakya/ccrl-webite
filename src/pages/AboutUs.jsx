@@ -10,7 +10,7 @@ const AboutUs = () => {
     setTimeout(() => {
       setData(true);
       setLoading(false);
-    }, 2000);
+    }, 200);
   }, []);
 
   if (loading) return <Loader />;
@@ -76,7 +76,7 @@ const AboutUs = () => {
 
             {/* Image */}
             <div className="order-1 md:order-2 mt-8 md:mt-0">
-              <div className="h-44 md:h-96 w-full flex items-center mt-5 justify-center text-gray-700 font-medium">
+              <div className="h-auto w-auto md:h-96 w-full flex items-center mt-5 justify-center text-gray-700 font-medium">
                 <img
                   src={images.aboutRightImage}
                   alt="Technician repairing commercial equipment"
@@ -90,7 +90,7 @@ const AboutUs = () => {
           {/* Bottom Section */}
           <div className="md:grid md:grid-cols-2 md:gap-12 lg:gap-24 items-center">
             <div className="order-2 md:order-1 mt-8 md:mt-0">
-              <div className="h-64 md:h-96 w-full flex items-center justify-center text-white text-xl font-bold p-6">
+              <div className="h-auto w-auto md:h-96 w-full flex items-center justify-center text-white text-xl font-bold p-6">
                 <img
                   src={images.aboutLeftImage}
                   alt="Team at work"

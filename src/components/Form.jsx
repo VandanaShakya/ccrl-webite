@@ -7,7 +7,7 @@ const ACCENT_FOCUS_RING = 'focus:ring-blue-500';
 
 const Form = () => {
   return (
-    <div className="bg-white shadow-lg rounded-lg mx-auto max-w-7xl px-4 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
+    <div className=" mx-auto max-w-7xl px-4 sm:px-4 lg:px-8 py-8 sm:py-12 md:py-16">
       
       {/* Header and Description */}
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2B7FFF] mb-2 pl-2 sm:pl-4">
@@ -30,13 +30,12 @@ const Form = () => {
         {/* Contact Info Section */}
         <div className="w-full lg:w-5/12 xl:w-4/12 space-y-4">
           {[
-            { Icon: Factory, text: 'Industrial Ltd. Inc.' },
-            { Icon: MapPin, text: '300 Pennsylvania Ave NW, Washington, DC 20006, USA' },
-            { Icon: Phone, text: '+386 40 222 555', link: 'tel:+38640222555' },
-            { Icon: Phone, text: '+386 40 222 554', link: 'tel:+38640222554' },
-            { Icon: Smartphone, text: '+386 40 222 555', link: 'tel:+38640222555' },
-            { Icon: Mail, text: 'mail@companyname.com', link: 'mailto:mail@companyname.com' },
-            { Icon: Globe, text: 'www.yoursitename.com', link: 'http://www.yoursitename.com', target: '_blank' },
+            { Icon: Factory, text: 'Commercial Catering Repairs Ltd.' },
+            { Icon: MapPin, text: '23 Wexham Close, Luton, Bedfordshire, United Kingdom, LU3 3TU' },
+            { Icon: Phone, text: '03301337762', link: 'tel:+38640222555' },
+            { Icon: Phone, text: '03301337762', link: 'tel:+38640222554' },
+            { Icon: Smartphone, text: '03301337762', link: 'tel:+38640222555' },
+            { Icon: Mail, text: 'service@pimlicocateringrepairs.co.uk', link: 'service@pimlicocateringrepairs.co.uk' },
           ].map(({ Icon, text, link, target }, i) => (
             <div key={i}>
               <div className="flex items-start">

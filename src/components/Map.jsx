@@ -10,8 +10,8 @@ const Map = () => {
       className="p-6 sm:p-8 w-full"
     >
       <div className="text-center mb-6 sm:mb-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-1">My Location</h2>
-        <p className="text-sm sm:text-base text-[#c4c5c5]">Visit or find us easily on the map below.</p>
+        <h2 className="text-xl sm:text-2xl font-bold text-blue-500 mb-1">My Location</h2>
+        <p className="text-sm sm:text-base text-[#c4c5c5]">find us easily on this map.</p>
       </div>
 
       {/* Responsive Map Embed */}
@@ -28,7 +28,7 @@ const Map = () => {
       </div>
 
       <div className="mt-5 text-center text-gray-300 text-sm sm:text-base">
-        <p className="font-semibold text-white">23 Wexham Cl</p>
+        <p className="font-semibold text-gray-400">23 Wexham Cl</p>
         <p>Luton LU3 3TU, United Kingdom</p>
       </div>
     </motion.div>

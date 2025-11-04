@@ -28,7 +28,7 @@ const Brands = () => {
     setTimeout(() => {
       setData(true);
       setLoading(false);
-    }, 2000);
+    }, 200);
   }, []);
 
   if (loading) return <Loader />;

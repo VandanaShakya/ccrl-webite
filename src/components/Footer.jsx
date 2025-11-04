@@ -6,7 +6,6 @@ import {
 import images from '../assets/images';
 
 const Footer = () => {
-  // Define a reusable Icon component for consistency and styling in contact info
   const ContactIcon = ({ icon: Icon, text }) => (
     <p className="flex items-start">
       <Icon className="mr-2 h-5 w-5 text-blue-500 mt-0.5" /> 
@@ -14,14 +13,12 @@ const Footer = () => {
     </p>
   );
 
-  // Define a reusable Social Icon component for buttons
   const SocialButton = ({ icon: Icon, href }) => (
     <a href={href} className="bg-blue-500 hover:bg-blue-600 text-white w-8 h-8 flex items-center justify-center transition-colors rounded">
       <Icon className="w-4 h-4" />
     </a>
   );
   
-  // Define a reusable Social Link component for simple links
   const SocialLink = ({ icon: Icon, href }) => (
     <a href={href} className="hover:text-white transition-colors">
       <Icon className="w-5 h-5" />

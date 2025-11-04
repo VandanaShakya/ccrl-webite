@@ -20,32 +20,24 @@ const HowitWorks = () => {
   // ref attached to the section we want to observe
   const ref = useRef(null);
 
-  // state that will hold the hydrated DOM node (ref.current)
-  const [scrollTarget, setScrollTarget] = useState(null);
+   const [scrollTarget, setScrollTarget] = useState(null);
 
-  // Use useLayoutEffect so we set the target before paint (more reliable)
-  useLayoutEffect(() => {
+   useLayoutEffect(() => {
     if (ref.current) {
       setScrollTarget(ref.current);
     }
-    // no deps on ref because ref is stable; empty deps run once after mount
-  }, []);
+   }, []);
 
-  // Always call useScroll on every render (keeps hooks order stable).
-  // Until scrollTarget exists we pass undefined so useScroll falls back to viewport.
-// set scroll options so tracking begins when section center hits viewport center
+  
 const scrollOptions = scrollTarget
   ? { target: scrollTarget, offset: ["center center", "end center"] }
   : undefined;
 
-// always call useScroll (passes undefined until section exists)
-const { scrollYProgress } = useScroll(scrollOptions);
+ const { scrollYProgress } = useScroll(scrollOptions);
 
-// grow line from 0% to 100% as the section scroll progress goes 0 -> 1
-const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+ const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
-// keep opacity at 1 through most of the scroll, but fade in at start and fade out at end
-const lineOpacity = useTransform(
+ const lineOpacity = useTransform(
   scrollYProgress,
   [0, 0.05, 0.95, 1],   // input progress
   [0, 1, 1, 0]          // output opacity

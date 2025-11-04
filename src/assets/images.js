@@ -175,6 +175,15 @@ import testimonial3 from './homepage/testimonial3.jpg'
 import testimonial4 from './homepage/testimonial4.jpg'
 
 
+// servery //
+import servery1 from './allservices/servery1.webp'
+import servery2 from './allservices/servery2.webp'
+import servery3 from './allservices/servery3.webp'
+import servery4 from './allservices/servery4.png'
+
+
+
+
 const images = {
     logo,
     heroImage,
@@ -349,6 +358,13 @@ testimonial1,
 testimonial2,
 testimonial3,
 testimonial4,
+
+
+// servery //
+servery1,
+servery2,
+servery3,
+servery4,
 
 }
 

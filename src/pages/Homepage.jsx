@@ -95,13 +95,21 @@ const Homepage = () => {
           initial="hidden"
           animate="show"
         >
-          <motion.h1 variants={heroTitle} className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 md:mb-6">
-            Title of the Section
-          </motion.h1>
+       <motion.h1
+  variants={heroTitle}
+  className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4 md:mb-6"
+>
+  Expert Commercial Kitchen Equipment Repairs & Maintenance
+</motion.h1>
 
-          <motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 font-light max-w-3xl mx-auto">
-            A compelling description that goes right here. It should be concise and clearly communicate the main message or purpose.
-          </motion.p>
+<motion.p
+  variants={fadeUp}
+  className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 font-light max-w-3xl mx-auto"
+>
+  At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly with reliable, efficient, and safety-compliant solutions.
+</motion.p>
+
+
 
           <motion.button
             variants={fadeUp}
@@ -131,9 +139,9 @@ const Homepage = () => {
             </motion.h1>
             <motion.div variants={fadeUp} className="w-12 h-1 bg-sky-500 mb-6" />
             <motion.p variants={fadeUp} className="text-gray-600 sm:text-lg leading-relaxed max-w-7xl">
-              <strong>About Pimlico Commercial Catering & Repairs Ltd</strong>
+              <strong>About Commercial Catering & Repairs Ltd</strong>
               <br />
-              Since 2023, Pimlico Commercial Catering & Repairs Ltd has proudly served prestigious
+              Since 2023, Commercial Catering & Repairs Ltd has proudly served prestigious
               clients including The Montcalm Hotel, Marriott Hotels, and Shaftesbury Hotels. We
               specialise in the maintenance, repairing, and installation of a wide range of commercial
               kitchen equipment, including: Dishwashers, Commercial range ovens with stoves, Fridges
@@ -162,7 +170,7 @@ const Homepage = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="w-15/16 m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
@@ -171,7 +179,7 @@ const Homepage = () => {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.15 }}
                 whileHover={{ y: -6, boxShadow: '0 18px 35px rgba(2,6,23,0.12)' }}
-                className="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform"
+                className="group cursor-pointer bg-white overflow-hidden shadow-lg transition-all duration-300 transform"
               >
                 <div className="relative h-64 sm:h-72 overflow-hidden">
                   <img

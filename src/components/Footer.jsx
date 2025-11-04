@@ -141,18 +141,7 @@ const Footer = () => {
               <li><a href="/support" className="hover:text-white">Support</a></li>
             </ul>
 
-            <div className="mt-auto">
-              <h4 className="text-white text-lg font-semibold mb-2">Follow Us</h4>
-              <div className="flex gap-3">
-                {/* social icons */}
-                <a href="#" className="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition">
-                  {/* icon */}
-                </a>
-                <a href="#" className="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition">
-                  {/* icon */}
-                </a>
-              </div>
-            </div>
+           
           </div>
 
         </div>

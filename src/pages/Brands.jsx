@@ -51,7 +51,7 @@ const Brands = () => {
     <>
       {/* HERO */}
       <div className="relative w-full h-[32rem] md:h-[40rem] overflow-hidden">
-        <img src={images.heroImage} alt="Industrial Background" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <img src={images.cupboard4} alt="Industrial Background" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 flex items-center">
           <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
             <div className="text-left space-y-4">
@@ -72,18 +72,16 @@ const Brands = () => {
       <section className={`px-8 py-12 bg-white text-gray-700 ${containerClass}`}>
         <div className="mb-6 group w-fit">
             <motion.h1
-    variants={fadeUp}
-    className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 transition-all duration-300"
-  >
-    Brands We Work With
-  </motion.h1>
-  
-        </div>
+  variants={fadeUp}
+  className="text-3xl sm:text-5xl font-semibold text-gray-900 mb-4 sm:mb-6 transition-all duration-300"
+>
+  Trusted <span className='text-blue-500'>Brands</span> We Service
+</motion.h1>
 
-        <p className="max-w-3xl text-sm md:text-base leading-relaxed text-gray-500 mb-8">
-          At Commercial Catering Repairs Ltd, we proudly service and support trusted catering equipment brands across cookers, ovens, fryers, and dishwashers — ensuring efficient, reliable kitchens.
-        </p>
-
+<p className="max-w-3xl text-sm md:text-base leading-relaxed text-gray-500 mb-8">
+  At Commercial Catering Repairs Ltd, we specialize in maintaining and repairing equipment from leading catering brands — ensuring your appliances perform at their best with minimal downtime.
+</p>
+</div>
         {/* COOKER SECTION */}
         <div className={`${containerClass} py-4`}>
           <h3 className="text-2xl font-semibold mb-2">COOKER BRANDS WE WORK WITH</h3>

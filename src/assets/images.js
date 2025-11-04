@@ -157,7 +157,7 @@ import meiko from './brands/meiko.png'
 import rational from './brands/rational.png'
 import turbo from './brands/turbo.jpg'
 import welbilt from './brands/welbilt.png'
-import winterhalter from './brands/winterhalter.png'
+import winterhalter from './brands/winterhalter.jpg'
 import maidaid from './brands/maidaid.png'
 
 

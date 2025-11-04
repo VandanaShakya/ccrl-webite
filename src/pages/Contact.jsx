@@ -34,15 +34,17 @@ const Contact = () => {
     <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex justify-center md:justify-start">
       {/* Text Content */}
       <div className="text-center md:text-left space-y-4">
-<h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
+<h1 className="text-white text-3xl sm:text-4xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
   Contact Us
 </h1>
-<p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
+
+<p className="text-gray-200 text-sm sm:text-base md:text-xl max-w-xl leading-relaxed">
   At CCRL, your commercial kitchen is our priority. Whether you need emergency repairs,
   scheduled servicing or a bespoke maintenance contract, our expert team is on hand
   to ensure peak performance and minimal downtime. Get in touch today and let us
   help keep your operations running smoothly and safely.
 </p>
+
 
 
 

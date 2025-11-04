@@ -59,6 +59,15 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, isLargeScreen]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const headerTranslate =
     isLargeScreen && !showTopBar ? '-translate-y-9' : 'translate-y-0';
 
@@ -66,11 +75,17 @@ const Navbar = () => {
     height: `${isLargeScreen ? fixedSpacerHeight : mainNavHeight}px`,
   };
 
-  const mobileMenuClasses = `
-    fixed top-0 right-0 w-1/2 h-screen bg-[#052E53] z-50 
-    transition-transform duration-300 ease-in-out transform 
-    ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+  // mobile menu classes (uses transform translate-x to be off-screen on the right initially)
+  const mobileMenuBase = `
+    fixed top-0 right-0 h-screen bg-[#052E53] z-50
+    transform transition-transform duration-300 ease-in-out
+    w-1/2 max-w-xs lg:hidden
   `;
+  const mobileMenuTransform = isOpen ? 'translate-x-0' : 'translate-x-full';
+
+  // overlay classes so it can fade in/out while staying mounted (lets close animation run)
+  const overlayBase = 'fixed inset-0 z-40 lg:hidden transition-opacity duration-300';
+  const overlayVisible = isOpen ? 'opacity-100 visible bg-black/50' : 'opacity-0 invisible';
 
   return (
     <>
@@ -89,9 +104,7 @@ const Navbar = () => {
             <div className="flex space-x-6">
               <div className="flex items-center space-x-1">
                 <MapPin size={16} className="text-orange-500" />
-                <span>
-                  23 Wexham Close, Luton, Bedfordshire, United Kingdom, LU3 3TU
-                </span>
+                <span>23 Wexham Close, Luton, Bedfordshire, United Kingdom, LU3 3TU</span>
               </div>
               <div className="flex items-center space-x-1">
                 <Clock size={16} className="text-orange-500" />
@@ -114,24 +127,16 @@ const Navbar = () => {
 
         {/* MAIN NAVIGATION */}
         <nav
-          className={`bg-[#052E53] ${
-            isScrolled ? 'backdrop-blur-sm bg-[#052E53]/90 shadow-lg' : ''
-          } transition-all duration-300`}
+          className={`bg-[#052E53] ${isScrolled ? 'backdrop-blur-sm bg-[#052E53]/90 shadow-lg' : ''} transition-all duration-300`}
           style={{ height: `${mainNavHeight}px` }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
             {/* LOGO */}
             <div className="flex items-center space-x-2">
               <Link to="/">
-                <img
-                  src={images.logo}
-                  className="h-10 w-25"
-                  alt="CCRL Logo"
-                />
+                <img src={images.logo} className="h-10 w-25" alt="CCRL Logo" />
               </Link>
-              <span className="text-2xl font-bold tracking-wider text-white">
-                CCRL
-              </span>
+              <span className="text-2xl font-bold tracking-wider text-white">CCRL</span>
             </div>
 
             {/* DESKTOP NAV LINKS */}
@@ -147,50 +152,66 @@ const Navbar = () => {
               ))}
             </div>
 
-            
-
             {/* MOBILE MENU BUTTON */}
             <div className="flex items-center lg:hidden">
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+                onClick={() => setIsOpen((s) => !s)}
                 className="p-2 text-gray-300 hover:text-orange-500 hover:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               >
-                {isOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>
         </nav>
       </header>
 
-      {/* 📱 MOBILE MENU OVERLAY */}
-      {isOpen && (
+      {/* 📱 MOBILE MENU & OVERLAY — always mounted so enter/exit animations run smoothly */}
+      <div
+        className={overlayBase + ' ' + overlayVisible}
+        onClick={() => setIsOpen(false)}
+        aria-hidden={!isOpen}
+      >
+        {/* sliding menu — stop click from bubbling to overlay */}
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={() => setIsOpen(false)}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-hidden={!isOpen}
+          className={`${mobileMenuBase} ${mobileMenuTransform}`}
+          onClick={(e) => e.stopPropagation()}
         >
-          <div
-            className={mobileMenuClasses}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="pt-24 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block pl-4 pr-4 py-2 text-gray-100 text-base font-medium hover:text-orange-500 hover:bg-gray-800 border-l-4 border-transparent hover:border-orange-500"
-                >
-                  {link.name}
-                </Link>
-              ))}
+          <div className="flex items-center justify-between p-4 border-b border-gray-700">
+            <div className="flex items-center space-x-2">
+              <Link to="/" onClick={() => setIsOpen(false)}>
+                <img src={images.logo} className="h-8 w-auto" alt="CCRL Logo" />
+              </Link>
+              <span className="text-white font-semibold">Menu</span>
             </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2 text-gray-200 hover:text-white focus:outline-none"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
           </div>
+
+          <nav className="pt-6 pb-4 px-2 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block pl-4 pr-4 py-3 text-gray-100 text-base font-medium hover:text-orange-500 hover:bg-gray-800 border-l-4 border-transparent hover:border-orange-500"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
         </div>
-      )}
+      </div>
 
       {/* SPACER */}
       <div style={spacerHeightStyle} />

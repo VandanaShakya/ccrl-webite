@@ -20,7 +20,7 @@ const AboutUs = () => {
       <div className="relative w-full h-[32rem] md:h-[40rem] overflow-hidden">
         {/* Background Image */}
         <img
-          src={images.aboutMainImage}
+          src={images.oven2}
           alt="Commercial kitchen background"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
@@ -79,8 +79,8 @@ const AboutUs = () => {
             <div className="order-1 md:order-2 mt-8 md:mt-0">
               <div className="h-auto w-auto md:h-96 w-full flex items-center mt-5 justify-center text-gray-700 font-medium">
                 <img
-                  src={images.aboutRightImage}
-                  alt="Technician repairing commercial equipment"
+                  src={images.commercialOven2}
+                  alt="about image"
                   className="max-h-full object-contain"
                   loading="lazy"
                 />
@@ -93,7 +93,7 @@ const AboutUs = () => {
             <div className="order-2 md:order-1 mt-8 md:mt-0">
               <div className="h-auto w-auto md:h-96 w-full flex items-center justify-center text-white text-xl font-bold p-6">
                 <img
-                  src={images.aboutLeftImage}
+                  src={images.boiler2}
                   alt="Team at work"
                   className="max-h-full object-contain"
                   loading="lazy"

@@ -81,13 +81,13 @@ const scrollOptions = scrollTarget
   <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
     {/* Header */}
     <header className="text-center mb-10 md:mb-16">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-3">
-        How It Works
-      </h2>
-      <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-        Follow these simple steps to book an engineer visit or request a
-        consultation.
-      </p>
+      <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-3">
+  Simple <span className='text-blue-500'>Steps</span> to Get Started
+</h2>
+<p className="text-gray-600 text-lg max-w-2xl mx-auto">
+  It only takes a few easy steps to book your engineer or arrange a quick consultation with our team.
+</p>
+
     </header>
 
     {/* Line Animation - Hidden on Mobile */}
@@ -147,18 +147,12 @@ const scrollOptions = scrollTarget
 
     {/* Notes */}
     <div className="mt-10 md:mt-16 space-y-2 text-left">
+      
       <p className="text-sm text-gray-600 italic">
-        <span className="font-semibold">Note:</span> All prices include congestion
-        charges and parking where applicable.
-      </p>
-      <p className="text-sm text-gray-600 italic">
-        <span className="font-semibold">Note:</span> Call-outs cannot be cancelled
+        <span className="font-semibold">⚠️ Note:</span> Call-outs cannot be cancelled
         within 3 hours of the scheduled time.
       </p>
-      <p className="text-sm text-gray-600 italic">
-        <span className="font-semibold">Note:</span> A minimum of 3 hours’ notice is
-        required for cancellations. No refunds will be issued for late cancellations.
-      </p>
+      
     </div>
   </div>
 </section>
@@ -227,12 +221,13 @@ const scrollOptions = scrollTarget
         </div>
 
         {/* Note */}
-        <div className="mt-8 p-4">
-          <p className="text-sm text-gray-600 text-center italic">
-            <span className="font-semibold">Note:</span> All prices include congestion
-            charges and parking where applicable.
-          </p>
-        </div>
+       <div className="mt-8 p-4 flex justify-center">
+  <p className="text-sm text-gray-600 italic text-center max-w-md">
+    <span className="font-semibold">⚠️ Note:</span> All prices include congestion
+    charges and parking where applicable.
+  </p>
+</div>
+
       </div>
     </div>
     </>

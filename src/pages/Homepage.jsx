@@ -80,62 +80,67 @@ const Homepage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center p-4">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-         <Link to="/">
-          <img
-            src={images.heroImage}
-            alt="Atmospheric background"
-            className="w-full h-full object-cover"
-          /></Link>
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
+  <section className="relative min-h-screen flex items-center justify-center p-4">
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <Link to="/">
+      <img
+        src={images.heroImage}
+        alt="Atmospheric background"
+        className="w-full h-full object-cover"
+      />
+    </Link>
+    {/* Darker blackish overlay */}
+    <div className="absolute inset-0 bg-black/70" />
+  </div>
 
-        {/* Content */}
-        <motion.div
-          className="relative z-10 text-white text-center max-w-4xl mx-auto p-6 md:p-10"
-          variants={containerStagger}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.h1
-            variants={heroTitle}
-            className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 md:mb-6 text-center"
-          >
-            Expert{' '}
-            <span className="text-[#2B7FFF]">Commercial Kitchen Equipment</span>{' '}
-            Repairs & Maintenance
-          </motion.h1>
+  {/* Content */}
+  <motion.div
+    className="relative z-10 text-white text-center max-w-4xl mx-auto p-6 md:p-10"
+    variants={containerStagger}
+    initial="hidden"
+    animate="show"
+  >
+    {/* Heading */}
+    <motion.h1
+      variants={heroTitle}
+      className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 md:mb-6"
+    >
+      Expert{' '}
+      <span
+        className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
+      >
+        Commercial Kitchen Equipment
+      </span>{' '}
+      Repairs & Maintenance
+    </motion.h1>
 
+    {/* Paragraph */}
+    <motion.p
+      variants={fadeUp}
+      className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto text-gray-200"
+    >
+      At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance
+      of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly
+      with reliable, efficient, and safety-compliant solutions.
+    </motion.p>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto"
-          >
-            At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly with reliable, efficient, and safety-compliant solutions.
-          </motion.p>
-
-
-
-          <motion.button
-            variants={fadeUp}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="relative px-8 py-3 text-lg font-semibold uppercase tracking-wider hover:bg-[#46c4f7] text-white rounded-full overflow-hidden transition-all duration-500 ease-out border border-sky-400 hover:text-white shadow-lg group"
-          >
-
-
-            <Link
-              to="/contact-us"
-              className="inline-block relative overflow-hidden  text-white font-semibold"
-            >
-              <span className="relative z-10">Get Started</span>
-            </Link>
-
-          </motion.button>
-        </motion.div>
-      </section>
+    {/* Button */}
+    <motion.button
+      variants={fadeUp}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className="relative px-10 py-3 text-lg font-semibold uppercase tracking-wider border border-sky-400 rounded-full overflow-hidden transition-all duration-500 ease-out hover:bg-sky-500/90 text-white shadow-lg"
+    >
+      <Link
+        to="/contact-us"
+        className="inline-block relative overflow-hidden text-white font-semibold"
+      >
+        <span className="relative z-10">Get Started</span>
+      </Link>
+    </motion.button>
+  </motion.div>
+</section>
 
       {/* OUR PROJECTS / About Section */}
       <section className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

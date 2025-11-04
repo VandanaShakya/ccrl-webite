@@ -39,13 +39,11 @@ const scrollOptions = scrollTarget
 
  const lineOpacity = useTransform(
   scrollYProgress,
-  [0, 0.05, 0.95, 1],   // input progress
+  [0, 0.08, 0.95, 1],   // input progress
   [0, 1, 1, 0]          // output opacity
 );
 
   if (loading) return <Loader />;
-
-  const hoverBorderColor = 'hover:border-[#3B82F6]';
 
   return (
     <>

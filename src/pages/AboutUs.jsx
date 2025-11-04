@@ -31,18 +31,19 @@ const AboutUs = () => {
           {/* Constrain content to max width */}
           <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex justify-center md:justify-start">
             {/* Text Content */}
-            <div className="text-center md:text-left space-y-4">
-              <h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
-                Our Mission
-              </h1>
+<div className="text-left space-y-4">
+  <h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
+    Our Mission
+  </h1>
 
-              <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
-                <span className="font-bold">Commercial Catering Repairs Ltd</span> is built on a foundation of reliability,
-                speed, and expert knowledge. We are dedicated to ensuring your commercial kitchen operates at peak efficiency
-                by providing rapid, reliable repair and maintenance services. Discover the core values that drive our
-                commitment to excellence.
-              </p>
-            </div>
+  <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
+    <span className="font-bold">Commercial Catering Repairs Ltd</span> is built on a foundation of reliability,
+    speed, and expert knowledge. We are dedicated to ensuring your commercial kitchen operates at peak efficiency
+    by providing rapid, reliable repair and maintenance services. Discover the core values that drive our
+    commitment to excellence.
+  </p>
+</div>
+
           </div>
         </div>
       </div>

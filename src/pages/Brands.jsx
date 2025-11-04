@@ -54,12 +54,16 @@ const Brands = () => {
         <img src={images.heroImage} alt="Industrial Background" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 flex items-center">
           <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
-            <div className="text-center md:text-left space-y-4">
-              <h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">brands we work on</h1>
-              <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
-                Get in touch with our team for inquiries, technical support, or service bookings. We’re here to assist you with reliable solutions and expert guidance.
-              </p>
-            </div>
+            <div className="text-left space-y-4">
+  <h1 className="text-white text-5xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">
+    brands we work on
+  </h1>
+
+  <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
+    Get in touch with our team for inquiries, technical support, or service bookings. We’re here to assist you with reliable solutions and expert guidance.
+  </p>
+</div>
+
           </div>
         </div>
       </div>

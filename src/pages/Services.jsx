@@ -120,7 +120,6 @@ const [loading, setLoading] = useState(true);
                 className="w-32 h-20 flex-shrink-0 border-2 border-transparent rounded-md overflow-hidden cursor-pointer hover:border-blue-500 transition shadow-md"
                 aria-label={`Gallery image ${index + 1}`}
                 onClick={() => {
-                  // If thumbnails should update the main image, we can add that behavior later.
                 }}
               >
                 <img

@@ -78,7 +78,7 @@ const Brands = () => {
 </motion.h1>
 
 <p className="max-w-3xl text-sm md:text-base leading-relaxed text-gray-500 mb-8">
-  At Commercial Catering Repairs Ltd, we specialize in maintaining and repairing equipment from leading catering brands — ensuring your appliances perform at their best with minimal downtime.
+  At Pimlico Commercial Catering Repairs Ltd, we specialize in maintaining and repairing equipment from leading catering brands — ensuring your appliances perform at their best with minimal downtime.
 </p>
 </div>
         {/* COOKER SECTION */}

@@ -564,3 +564,99 @@ export const dishwasherBrandData = [
     image: images.meiko,
   },
 ];
+
+
+
+// terms //
+// PolicyData.js
+
+/**
+ * Terms & Conditions Data for Commercial Catering Repairs Ltd
+ */
+export const termsData = [
+  {
+    id: 1,
+    title: 'Introduction',
+    content: 'Welcome to our platform. By accessing or using this website, you agree to be bound by these Terms & Conditions and all applicable laws. If you disagree with any part of these terms, please refrain from using the website or our services.',
+    isList: false,
+  },
+  {
+    id: 2,
+    title: 'Services Overview',
+    content: 'Pimlico Commercial Catering Repairs Ltd provides digital marketing and real estate consultancy services to assist clients in generating leads, managing investments, and streamlining property transactions. The details of these services may vary and are subject to change at our discretion.',
+    isList: false,
+  },
+  {
+    id: 3,
+    title: 'User Responsibilities',
+    content: [
+      'You agree to provide accurate and complete information when using our platform.',
+      'You shall not use the website for unlawful or unauthorized purposes.',
+      'You are responsible for maintaining the confidentiality of your account credentials.',
+    ],
+    isList: true,
+  },
+  {
+    id: 4,
+    title: 'Intellectual Property',
+    content: 'All content, branding, design elements, logos, and materials on this website are the property of Commercial Catering Repairs Ltd. You may not reproduce, copy, distribute, or use any materials without prior written consent.',
+    isList: false,
+  },
+  {
+    id: 5,
+    title: 'Limitation of Liability',
+    content: 'We strive to ensure the accuracy of information provided on our website; however, we do not guarantee the completeness or reliability of any data. We shall not be held liable for any direct, indirect, or incidental damages resulting from the use of our services.',
+    isList: false,
+  },
+];
+
+/**
+ * Privacy Policy Data for Commercial Catering Repairs Ltd
+ */
+export const privacyPolicyData = [
+  {
+    id: 1,
+    title: 'Introduction and Scope',
+    content: 'This Privacy Policy explains how Pimlico Commercial Catering Repairs Ltd collects, uses, discloses, and safeguards your information when you visit our website or use our services. By using the Service, you consent to the data practices described in this policy.',
+    isList: false,
+  },
+  {
+    id: 2,
+    title: 'Information We Collect',
+    content: [
+      'Personal Data: We collect personally identifiable information, such as your name, email address, phone number, and location when you register or contact us.',
+      'Usage Data: We automatically collect data on how the Service is accessed and used, which may include your computer’s Internet Protocol address (IP address), browser type, pages visited, and time spent on those pages.',
+      'Cookies and Tracking: We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.',
+    ],
+    isList: true,
+  },
+  {
+    id: 3,
+    title: 'How We Use Your Information',
+    content: [
+      'To provide and maintain our Service.',
+      'To manage your account and provide customer support.',
+      'To communicate with you about service updates, offers, and promotions.',
+      'To monitor the usage of the Service and improve website functionality.',
+    ],
+    isList: true,
+  },
+  {
+    id: 4,
+    title: 'Disclosure of Your Information',
+    content: 'We may disclose your personal information in the good faith belief that such action is necessary to: comply with a legal obligation, protect and defend the rights or property of Pimlico Commercial Catering Repairs Ltd, prevent or investigate possible wrongdoing in connection with the Service, or protect the personal safety of users or the public.',
+    isList: false,
+  },
+  {
+    id: 5,
+    title: 'Security of Data',
+    content: 'The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.',
+    isList: false,
+  },
+  {
+    id: 6,
+    title: 'Changes to This Privacy Policy',
+    content: 'We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.',
+    isList: false,
+  },
+];

@@ -12,6 +12,8 @@ import AboutUs from './pages/AboutUs'
 import ScrollToTop from './components/Scrollmount'
 import Loader from './components/Loader'
 import PageNotFound from './pages/PageNoFound'
+import Terms from './pages/Terms'
+import PrivacyPolicy from './pages/Privacypolicy'
 
 function App() {
   const [loading, setLoading] = useState(true); 
@@ -38,6 +40,8 @@ function App() {
         <Route path='/how-it-works' element={<HowitWorks/>} />
         <Route path='/our-brands' element={<Brands/>} />
         <Route path='/about-us' element={<AboutUs/>} />
+        <Route path='/terms&conditions' element={<Terms/>} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
 
         {/* <<-- Wildcard route for any unmatched path --> */}
         <Route path='*' element={<PageNotFound/>} />

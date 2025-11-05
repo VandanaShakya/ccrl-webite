@@ -39,7 +39,6 @@ const Brands = () => {
 
   if (loading) return <Loader />;
   // use 7xl width as requested
-  const containerClass = "max-w-7xl mx-auto";
 
   // dedupe oven data if needed (fryerBrandData used as ovenData earlier)
   const uniqueOvenData = Array.from(new Map(fryerBrandData.map(b => [b.title, b])).values());
@@ -69,7 +68,7 @@ const Brands = () => {
       </div>
 
       {/* MAIN SECTION (7xl width) */}
-      <section className={`px-8 py-12 bg-white text-gray-700 ${containerClass}`}>
+      <section className={`px-8 py-12 bg-white text-gray-700 max-w-7xl mx-auto`}>
         <div className="mb-6 group w-fit">
             <motion.h1
   variants={fadeUp}
@@ -83,7 +82,7 @@ const Brands = () => {
 </p>
 </div>
         {/* COOKER SECTION */}
-        <div className={`${containerClass} py-4`}>
+        <div className={`max-w-7xl mx-auto py-4`}>
           <h3 className="text-2xl font-semibold mb-2">COOKER BRANDS WE WORK WITH</h3>
           <p className="max-w-3xl text-sm text-gray-500 mb-4">We service high-quality cookers from Blue Seal, Falcon, Rational, Hatco, Electrolux and Welbilt.</p>
 
@@ -118,7 +117,7 @@ const Brands = () => {
         </div>
 
         {/* OVEN SECTION */}
-        <div className={`${containerClass} py-8`}>
+        <div className={`max-w-7xl mx-auto py-8`}>
           <h3 className="text-2xl font-semibold mb-2">OVEN BRANDS WE WORK WITH</h3>
           <p className="max-w-3xl text-sm text-gray-500 mb-4">We service premium ovens like Turbo Fan, Rational and Convotherm — delivering precise, efficient cooking performance.</p>
 
@@ -153,7 +152,7 @@ const Brands = () => {
         </div>
 
         {/* DISH / GLASSWASHER SECTION */}
-        <div className={`${containerClass} py-8`}>
+        <div className={`max-w-7xl mx-auto py-8`}>
           <h3 className="text-2xl font-semibold mb-2">DISH & GLASSWASHERS WE WORK WITH</h3>
           <p className="max-w-3xl text-sm text-gray-500 mb-4">We support dish and glasswashers from Winterhalter, Maidaid, Classeq, and Meiko to keep your service running hygienically and efficiently.</p>
 

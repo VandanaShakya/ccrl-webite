@@ -146,7 +146,7 @@ const scrollOptions = scrollTarget
     </div>
 
     {/* Notes */}
-    <div className="mt-10 md:mt-16 space-y-2 text-left">
+    <div className="mt-10 md:mt-16 space-y-2 text-center">
       
       <p className="text-sm text-gray-600 italic">
         <span className="font-semibold">⚠️ Note:</span> Call-outs cannot be cancelled
@@ -186,7 +186,7 @@ const scrollOptions = scrollTarget
                           ${tier.isFeatured ? "bg-gray-100" : "bg-white"} 
                           ${index === 0 ? "md:rounded-l-xl" : ""} 
                           ${index === pricingTiers.length - 1 ? "md:rounded-r-xl" : ""}`}
-            >
+            >         
               <h2
                 className={`text-xl font-bold mb-1 ${
                   tier.isFeatured ? "text-gray-900" : "text-gray-700"

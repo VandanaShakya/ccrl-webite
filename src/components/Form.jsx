@@ -29,7 +29,7 @@ const Form = () => {
         {/* Contact Info Section */}
         <div className="w-full lg:w-5/12 xl:w-4/12 space-y-4">
           {[
-            { Icon: Factory, text: 'Pimlico Commercial Catering Repairs Ltd.' },
+            { Icon: Factory, text: 'Commercial Catering Repairs Ltd.' },
             { Icon: MapPin, text: '23 Wexham Close, Luton, Bedfordshire, United Kingdom, LU3 3TU' },
             { Icon: Phone, text: '03301337762', link: 'tel:+38640222555' },
          

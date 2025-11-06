@@ -37,7 +37,7 @@ const AboutUs = () => {
   </h1>
 
   <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
-    <span className="font-bold">Pimlico Commercial Catering Repairs Ltd</span> is built on a foundation of reliability,
+    <span className="font-bold"> Commercial Catering Repairs Ltd</span> is built on a foundation of reliability,
     speed, and expert knowledge. We are dedicated to ensuring your commercial kitchen operates at peak efficiency
     by providing rapid, reliable repair and maintenance services. Discover the core values that drive our
     commitment to excellence.
@@ -55,13 +55,13 @@ const AboutUs = () => {
             {/* Text Content */}
             <div className="order-2 md:order-1">
               <h1 className="text-4xl sm:text-5xl font-semibold text-gray-900 mb-6 text-left font-sans">
-                About <span className="text-[#2B7FFF] font-semibold">Pimlico Commercial Catering & Repairs Ltd</span>
+                About <span className="text-[#2B7FFF] font-semibold"> Commercial Catering & Repairs Ltd</span>
               </h1>
 
               {/* Use a div instead of a <p> when you need to include a block list */}
               <div className="mt-4 text-lg text-gray-700 leading-relaxed max-w-xl">
                 <p>
-                  Since 2023, Pimlico Commercial Catering & Repairs Ltd has proudly served prestigious clients including
+                  Since 2023, Commercial Catering & Repairs Ltd has proudly served prestigious clients including
                   The Montcalm Hotel, Marriott Hotels, and Shaftesbury Hotels. We specialise in the maintenance, repairing,
                   and installation of a wide range of commercial kitchen equipment, including:
                 </p>

@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
 
         <p className="text-sm leading-relaxed mb-6 flex-1">
-          Pimlico Commercial Catering Repairs Ltd specializes in providing fast, reliable, and
+          Commercial Catering Repairs Ltd specializes in providing fast, reliable, and
           professional repair and maintenance services for all types of commercial kitchen
           equipment. We ensure minimal downtime and maximum efficiency for your business operations.
         </p>
@@ -115,24 +115,26 @@ const Footer = () => {
         </p>
 
         <div className="text-sm space-y-1 mt-auto">
-          {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
+          {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
             <div key={day} className="flex justify-between">
               <span>{day}</span>
               <span>9am &gt; 6pm</span>
             </div>
           ))}
          
-          <div className="flex justify-between">
-            <span className="text-red-400">Sunday</span>
-            <span className="text-red-400">Closed</span>
-          </div>
+         <div className="flex justify-between">
+  <p className="text-gray-300 text-sm">
+    We’re open <span className="text-green-400 font-semibold">24/7</span> — always here to serve you anytime.
+  </p>
+</div>
+
         </div>
       </div>
       </div>
         {/* Copyright Section */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
           <p className="text-sm">
-            © {new Date().getFullYear()} Pimlico Commercial Catering Repairs Ltd (CCRL). All rights reserved. &nbsp;
+            © {new Date().getFullYear()}Commercial Catering Repairs Ltd (CCRL). All rights reserved. &nbsp;
             <a href="/terms&conditions" className="underline">Terms</a> | <a href="/privacy-policy" className="underline">Privacy Policy</a>
           </p>
         </div>

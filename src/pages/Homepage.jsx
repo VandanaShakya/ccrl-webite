@@ -125,7 +125,7 @@ const Homepage = () => {
       variants={fadeUp}
       className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto text-gray-200"
     >
-      At Pimlico Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance
+      At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance
       of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly
       with reliable, efficient, and safety-compliant solutions.
     </motion.p>
@@ -149,7 +149,7 @@ const Homepage = () => {
 
       {/* OUR PROJECTS / About Section */}
       <section className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-6/9 m-auto">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={containerStagger} className="mb-10 sm:mb-16">
           <motion.div
   variants={fadeUp}
@@ -171,9 +171,9 @@ const Homepage = () => {
 
 
             <motion.p variants={fadeUp} className="text-gray-600 sm:text-lg leading-relaxed max-w-7xl">
-              <strong>About Pimlico Commercial Catering & Repairs Ltd</strong>
+              <strong>About Commercial Catering & Repairs Ltd</strong>
               <br />
-              Since 2023, Pimlico Commercial Catering & Repairs Ltd has proudly served prestigious
+              Since 2023, Commercial Catering & Repairs Ltd has proudly served prestigious
               clients including The Montcalm Hotel, Marriott Hotels, and Shaftesbury Hotels. We
               specialise in the maintenance, repairing, and installation of a wide range of commercial
               kitchen equipment, including: Dishwashers, Commercial range ovens with stoves, Fridges
@@ -202,7 +202,7 @@ const Homepage = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="w-15/16 m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="w-auto m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
@@ -249,7 +249,7 @@ const Homepage = () => {
         <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-4 sm:px-8">
           <motion.div initial="hidden" whileInView="show" variants={ctaVariant} viewport={{ once: true, amount: 0.25 }} className="max-w-xl text-left text-white">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight uppercase tracking-wide mb-3">
-              PIMLICO COMMERCIAL <span className="text-sky-400">CATERING</span> REPAIR LTD
+               COMMERCIAL <span className="text-sky-400">CATERING</span> REPAIR LTD
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6 max-w-lg font-light">
               We are dedicated to mastering every repair, ensuring your commercial kitchen runs flawlessly. Our commitment to quality and swift response goes above and beyond, providing a fantastic, reliable experience every time.
@@ -372,7 +372,7 @@ const Homepage = () => {
         {/* Contact Info Section */}
        <div className="hidden md:block w-full lg:w-5/12 xl:w-4/12 space-y-4">
   {[
-    { Icon: Factory, text: 'Pimlico Commercial Catering Repairs Ltd.' },
+    { Icon: Factory, text: 'Commercial Catering Repairs Ltd.' },
     { Icon: MapPin, text: '23 Wexham Close, Luton, Bedfordshire, United Kingdom, LU3 3TU' },
     { Icon: Phone, text: '03301337762', link: 'tel:+38640222555' },
     { Icon: Mail, text: 'service@pimlicocateringrepairs.co.uk', link: 'mailto:service@pimlicocateringrepairs.co.uk' },

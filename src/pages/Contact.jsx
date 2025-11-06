@@ -31,7 +31,7 @@ const Contact = () => {
   {/* Dark overlay with gradient for better contrast */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 flex items-center">
     {/* Constrain content to max width */}
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex justify-center md:justify-start">
+    <div className="w-full max-w-7xl mx-auto md:px-10 flex justify-center md:justify-start">
       {/* Text Content */}
       <div className="text-center md:text-left space-y-4">
 <h1 className="text-white text-3xl sm:text-4xl md:text-7xl font-extrabold uppercase tracking-widest drop-shadow-lg">

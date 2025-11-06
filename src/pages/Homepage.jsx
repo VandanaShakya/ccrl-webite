@@ -148,99 +148,122 @@ const Homepage = () => {
 </section>
 
       {/* OUR PROJECTS / About Section */}
-      <section className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="w-6/9 m-auto">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={containerStagger} className="mb-10 sm:mb-16">
-          <motion.div
-  variants={fadeUp}
-  className="group inline-block text-left"
->
-  <motion.h1
-    variants={fadeUp}
-    className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 transition-all duration-300"
-  >
-    OUR PROJECTS
-  </motion.h1>
+  <section className="min-h-screen bg-gray-50 px-0 sm:px-6 lg:px-8 py-12 sm:py-16">
+  {/* Wrapper: 95% width on mobile, centered and constrained on sm/lg */}
+  <div className="w-[95%] sm:w-9/12 lg:w-8/12 mx-auto">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerStagger}
+      className="mb-10 sm:mb-16"
+    >
+      <motion.div variants={fadeUp} className="group inline-block text-left">
+        <motion.h1
+          variants={fadeUp}
+          className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 transition-all duration-300"
+        >
+          OUR PROJECTS
+        </motion.h1>
 
-  <motion.div
-    variants={fadeUp}
-    className="w-20 h-1 bg-sky-500 mb-6 transition-all duration-500 group-hover:w-80"
-  />
-</motion.div>
+        <motion.div
+          variants={fadeUp}
+          className="w-20 h-1 bg-sky-500 mb-6 transition-all duration-500 group-hover:w-80"
+        />
+      </motion.div>
 
+      <motion.p
+        variants={fadeUp}
+        className="text-gray-600 text-sm sm:text-lg leading-relaxed"
+      >
+        <strong>About Commercial Catering & Repairs Ltd</strong>
+        <br />
+        Since 2023, Commercial Catering & Repairs Ltd has proudly served prestigious
+        clients including The Montcalm Hotel, Marriott Hotels, and Shaftesbury Hotels. We
+        specialise in the maintenance, repairing, and installation of a wide range of commercial
+        kitchen equipment, including: Dishwashers, Commercial range ovens with stoves, Fridges
+        & freezers, and Rational ovens. We take great pride in delivering exceptional service,
+        backed by competitive pricing and reliable workmanship. Our team is committed to
+        ensuring your kitchen operations run smoothly, 24/7. Whether it's a minor repair or a
+        full kitchen setup, you can trust us to provide the best value and dependable support in
+        the industry.
+      </motion.p>
+    </motion.div>
 
+    {/* Filters */}
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      className="mb-8 sm:mb-12 overflow-x-auto"
+    >
+      <div className="flex gap-2 sm:gap-4 border-b border-gray-200 pb-2">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`px-4 sm:px-6 py-2 text-sm sm:text-base font-medium whitespace-nowrap transition-colors duration-300 ${
+              activeFilter === filter
+                ? 'text-sky-500 border-b-2 border-sky-500'
+                : 'text-gray-600 hover:text-sky-500'
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+    </motion.div>
 
-            <motion.p variants={fadeUp} className="text-gray-600 sm:text-lg leading-relaxed max-w-7xl">
-              <strong>About Commercial Catering & Repairs Ltd</strong>
-              <br />
-              Since 2023, Commercial Catering & Repairs Ltd has proudly served prestigious
-              clients including The Montcalm Hotel, Marriott Hotels, and Shaftesbury Hotels. We
-              specialise in the maintenance, repairing, and installation of a wide range of commercial
-              kitchen equipment, including: Dishwashers, Commercial range ovens with stoves, Fridges
-              & freezers, and Rational ovens. We take great pride in delivering exceptional service,
-              backed by competitive pricing and reliable workmanship. Our team is committed to
-              ensuring your kitchen operations run smoothly, 24/7. Whether it's a minor repair or a
-              full kitchen setup, you can trust us to provide the best value and dependable support in
-              the industry.
-            </motion.p>
-          </motion.div>
-
-          {/* Filters (slightly animating) */}
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="mb-8 sm:mb-12 overflow-x-auto">
-            <div className="flex gap-2 sm:gap-4 border-b border-gray-200 pb-2">
-              {filters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 sm:px-6 py-2 text-sm sm:text-base font-medium whitespace-nowrap transition-colors duration-300 ${activeFilter === filter ? 'text-sky-500 border-b-2 border-sky-500' : 'text-gray-600 hover:text-sky-500'
-                    }`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Projects Grid */}
-          <div className="w-auto m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredProjects.map((project, idx) => (
-              <motion.div
-                key={project.id}
-                variants={cardVariant}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.15 }}
-                whileHover={{ y: -6, boxShadow: '0 18px 35px rgba(2,6,23,0.12)' }}
-                className="group cursor-pointer bg-white overflow-hidden shadow-lg transition-all duration-300 transform"
-              >
-                <div className="relative h-64 sm:h-72 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                </div>
-                <div className="p-4 sm:p-6">
-                  <p className="text-xs sm:text-sm text-sky-500 font-semibold uppercase tracking-wider mb-2">
-                    {project.category}
-                  </p>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-sky-500 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
+    {/* Projects Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+      {filteredProjects.map((project) => (
+        <motion.div
+          key={project.id}
+          variants={cardVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          whileHover={{ y: -6, boxShadow: '0 18px 35px rgba(2,6,23,0.12)' }}
+          className="group cursor-pointer bg-white overflow-hidden shadow-lg transition-all duration-300 transform"
+        >
+          <div className="relative h-60 sm:h-72 overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
           </div>
+          <div className="p-4 sm:p-6">
+            <p className="text-xs sm:text-sm text-sky-500 font-semibold uppercase tracking-wider mb-2">
+              {project.category}
+            </p>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-sky-500 transition-colors duration-300">
+              {project.title}
+            </h3>
+          </div>
+        </motion.div>
+      ))}
+    </div>
 
-          {/* Empty State */}
-          {filteredProjects.length === 0 && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-center py-12">
-              <p className="text-gray-600 text-lg">No projects found in this category.</p>
-            </motion.div>
-          )}
-        </div>
-      </section>
+    {/* Empty State */}
+    {filteredProjects.length === 0 && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-center py-12"
+      >
+        <p className="text-gray-600 text-lg">
+          No projects found in this category.
+        </p>
+      </motion.div>
+    )}
+  </div>
+</section>
+
+
 
       {/* Parallax/CTA Banner */}
       <section className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden">

@@ -216,71 +216,69 @@ const [loading, setLoading] = useState(true);
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="min-h-screen pt-8">
-       <section className="w-[64%] mx-auto bg-white">
-  <div className="mb-4 group inline-block">
-    <h2
-      className="text-2xl font-semibold tracking-wide text-black relative w-fit
-      after:content-[''] after:block after:w-12 after:h-[3px] after:bg-[#2B7FFF]
-      after:transition-all after:duration-300 group-hover:after:w-20"
-    >
-      OUR INDUSTRIAL SERVICES
-    </h2>
-  </div>
+     <div className="min-h-screen pt-8">
+  <section className="w-[95%] md:w-[64%] mx-auto bg-white px-0 md:px-0">
+    <div className="mb-4 group inline-block">
+      <h2
+        className="text-2xl font-semibold tracking-wide text-black relative w-fit
+        after:content-[''] after:block after:w-12 after:h-[3px] after:bg-[#2B7FFF]
+        after:transition-all after:duration-300 group-hover:after:w-20"
+      >
+        OUR INDUSTRIAL SERVICES
+      </h2>
+    </div>
 
-  <p className="w-4xl text-sm md:text-base leading-relaxed text-gray-500 mt-1">
-    We deliver comprehensive industrial solutions designed to enhance efficiency, safety, and sustainability. Our services span
-    equipment installation, process automation, maintenance, and energy management — helping industries optimize operations and reduce downtime.
-  </p>
-</section>
+    <p className="text-sm md:text-base leading-relaxed text-gray-500 mt-1">
+      We deliver comprehensive industrial solutions designed to enhance efficiency, safety, and sustainability. Our services span
+      equipment installation, process automation, maintenance, and energy management — helping industries optimize operations and reduce downtime.
+    </p>
+  </section>
 
-{/* Layout wrapper */}
-<div className="w-[64%] m-auto  m-auto px-1 font-sans bg-white shadow-lg rounded-lg overflow-hidden my-8">
-  <div className="w-auto m-auto flex flex-col md:flex-row min-h-0"> {/* min-h-0 helps children shrink on some browsers */}
-    {/* SIDEBAR */}
-    <aside className="w-full md:w-64 flex-shrink-0 bg-white border-b md:border-b-0 md:border-r border-gray-200 z-10">
-      <div className="p-4">
-        <h3 className="text-xl font-bold uppercase mb-2" style={{ color: CUSTOM_BLUE }}>
-          All Services
-        </h3>
+  {/* Layout wrapper */}
+  <div className="w-[95%] md:w-[64%] mx-auto font-sans bg-white shadow-lg rounded-lg overflow-hidden my-8">
+    <div className="flex flex-col md:flex-row min-h-0">
+      {/* SIDEBAR */}
+      <aside className="w-full md:w-64 flex-shrink-0 bg-white border-b md:border-b-0 md:border-r border-gray-200 z-10">
+        <div className="p-4">
+          <h3 className="text-xl font-bold uppercase mb-2" style={{ color: CUSTOM_BLUE }}>
+            All Services
+          </h3>
 
-        {/* Responsive nav: column on md+, horizontal scroll on small screens */}
-        <motion.nav
-          initial="hidden"
-          animate="show"
-          variants={staggerContainer}
-          className="flex md:flex-col flex-row md:space-y-1 space-x-3 md:space-x-0 overflow-x-auto pb-2 md:pb-0"
-        >
-          {serviceData.map((service) => (
-            <motion.button
-              key={service.id}
-              variants={sidebarItem}
-              onClick={() => setActiveServiceId(service.id)}
-              className={`flex-shrink-0 whitespace-nowrap text-left px-4 py-3 text-sm font-medium rounded-md transition-all duration-200 focus:outline-none
-                ${activeServiceId === service.id ? 'text-white shadow-md' : 'text-gray-700 hover:bg-blue-50 hover:text-gray-900'}
-              `}
-              style={activeServiceId === service.id ? { backgroundColor: CUSTOM_BLUE } : {}}
-              aria-pressed={activeServiceId === service.id}
-            >
-              {service.title}
-            </motion.button>
-          ))}
-        </motion.nav>
+          {/* Responsive nav */}
+          <motion.nav
+            initial="hidden"
+            animate="show"
+            variants={staggerContainer}
+            className="flex md:flex-col flex-row md:space-y-1 space-x-3 md:space-x-0 overflow-x-auto pb-2 md:pb-0"
+          >
+            {serviceData.map((service) => (
+              <motion.button
+                key={service.id}
+                variants={sidebarItem}
+                onClick={() => setActiveServiceId(service.id)}
+                className={`flex-shrink-0 whitespace-nowrap text-left px-4 py-3 text-sm font-medium rounded-md transition-all duration-200 focus:outline-none
+                  ${activeServiceId === service.id ? 'text-white shadow-md' : 'text-gray-700 hover:bg-blue-50 hover:text-gray-900'}
+                `}
+                style={activeServiceId === service.id ? { backgroundColor: CUSTOM_BLUE } : {}}
+                aria-pressed={activeServiceId === service.id}
+              >
+                {service.title}
+              </motion.button>
+            ))}
+          </motion.nav>
 
-        <hr className="my-4 border-gray-200" />
-      </div>
-    </aside>
+          <hr className="my-4 border-gray-200" />
+        </div>
+      </aside>
 
-    {/* MAIN CONTENT AREA */}
-    <main className="flex-grow w-full min-w-0 p-6"> {/* IMPORTANT: min-w-0 allows this flex child to shrink and prevent overflow */}
-      {contentJSX}
-    </main>
+      {/* MAIN CONTENT AREA */}
+      <main className="flex-grow w-full min-w-0 p-4 md:p-6">
+        {contentJSX}
+      </main>
+    </div>
   </div>
 </div>
 
-
-       
-      </div>
     </>
   );
 };

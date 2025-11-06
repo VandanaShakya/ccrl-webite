@@ -583,7 +583,7 @@ export const termsData = [
   {
     id: 2,
     title: 'Services Overview',
-    content: 'Pimlico Commercial Catering Repairs Ltd provides digital marketing and real estate consultancy services to assist clients in generating leads, managing investments, and streamlining property transactions. The details of these services may vary and are subject to change at our discretion.',
+    content: 'Commercial Catering Repairs Ltd provides digital marketing and real estate consultancy services to assist clients in generating leads, managing investments, and streamlining property transactions. The details of these services may vary and are subject to change at our discretion.',
     isList: false,
   },
   {
@@ -617,7 +617,7 @@ export const privacyPolicyData = [
   {
     id: 1,
     title: 'Introduction and Scope',
-    content: 'This Privacy Policy explains how Pimlico Commercial Catering Repairs Ltd collects, uses, discloses, and safeguards your information when you visit our website or use our services. By using the Service, you consent to the data practices described in this policy.',
+    content: 'This Privacy Policy explains how Commercial Catering Repairs Ltd collects, uses, discloses, and safeguards your information when you visit our website or use our services. By using the Service, you consent to the data practices described in this policy.',
     isList: false,
   },
   {

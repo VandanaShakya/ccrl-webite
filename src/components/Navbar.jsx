@@ -108,7 +108,7 @@ const Navbar = () => {
               </div>
               <div className="flex items-center space-x-1">
                 <Clock size={16} className="text-orange-500" />
-                <span>Mon - Sat: 9:00 - 18:00</span>
+                <span>Mon - Sun: 9:00 - 18:00</span>
               </div>
               <div className="flex items-center space-x-1">
                 <Phone size={16} className="text-orange-500" />

@@ -100,51 +100,53 @@ const Homepage = () => {
   </div>
 
   {/* Content */}
-  <motion.div
-    className="relative z-10 text-white text-center max-w-4xl mx-auto p-6 md:p-10"
-    variants={containerStagger}
-    initial="hidden"
-    animate="show"
+<motion.div
+  className="relative z-10 text-white text-left w-[95%] md:max-w-[64%] mx-auto py-2 md:py-10"
+  variants={containerStagger}
+  initial="hidden"
+  animate="show"
+>
+  {/* Heading */}
+  <motion.h1
+    variants={heroTitle}
+    className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 md:mb-6 leading-tight"
   >
-    {/* Heading */}
-    <motion.h1
-      variants={heroTitle}
-      className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 md:mb-6"
+    Expert{' '}
+    <span
+      className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
     >
-      Expert{' '}
-      <span
-        className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 drop-shadow-[0_0_10px_rgba(56,189,248,0.7)]"
-      >
-        Commercial Kitchen Equipment
-      </span>{' '}
-      Repairs & Maintenance
-    </motion.h1>
+      Commercial Kitchen Equipment
+    </span>{' '}
+    Repairs & Maintenance
+  </motion.h1>
 
-    {/* Paragraph */}
-    <motion.p
-      variants={fadeUp}
-      className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 font-light max-w-3xl mx-auto text-gray-200"
-    >
-      At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance
-      of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly
-      with reliable, efficient, and safety-compliant solutions.
-    </motion.p>
+  {/* Paragraph */}
+  <motion.p
+    variants={fadeUp}
+    className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 font-light text-gray-200 max-w-2xl"
+  >
+    At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance
+    of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly
+    with reliable, efficient, and safety-compliant solutions.
+  </motion.p>
 
-    {/* Button */}
-    <motion.button
-      variants={fadeUp}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
-      className="relative px-10 py-3 text-lg font-semibold uppercase tracking-wider border border-sky-400 rounded-full overflow-hidden transition-all duration-500 ease-out hover:bg-sky-500/90 text-white shadow-lg"
+  {/* Button */}
+  <motion.button
+    variants={fadeUp}
+    whileHover={{ scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+    className="relative px-8 sm:px-10 py-3 text-lg font-semibold uppercase tracking-wider border border-sky-400 rounded-full overflow-hidden transition-all duration-500 ease-out hover:bg-sky-500/90 text-white shadow-lg"
+  >
+    <Link
+      to="/contact-us"
+      className="inline-block relative overflow-hidden text-white font-semibold"
     >
-      <Link
-        to="/contact-us"
-        className="inline-block relative overflow-hidden text-white font-semibold"
-      >
-        <span className="relative z-10">Get Started</span>
-      </Link>
-    </motion.button>
-  </motion.div>
+      <span className="relative z-10">Get Started</span>
+    </Link>
+  </motion.button>
+</motion.div>
+
+
 </section>
 
       {/* OUR PROJECTS / About Section */}

@@ -5,7 +5,7 @@ import serviceDishwasher1 from './services/servicedishwasher.webp'
 import serviceDishwasher2 from './services/servicedishwasher2.jpeg'
 import freez1 from './services/freez1.webp'
 import freez2 from './services/freez2.jpg'
-import oven1 from './services/oven1.webp'
+import oven1 from './services/oven1.png'
 import oven2 from './services/oven2.webp'
 import relationalOven from './services/relationaloven.png'
 
@@ -73,13 +73,13 @@ import DishWasher4 from './allservices/dish_4.webp'
 
 // solid top //
 import solidTop1 from './allservices/solidtop_1.avif'
-import solidTop2 from './allservices/solidtop_2.webp'
+import solidTop2 from './allservices/solidtop_2.png'
 import solidTop3 from './allservices/solidtop_3.jpg'
 import solidTop4 from './allservices/solidtop_4.jpg'
 
 // open top //
 import openTop from './allservices/opentoprange.png'
-import openTop1 from './allservices/opentop_1.webp'
+import openTop1 from './allservices/opentop_1.png'
 import openTop2 from './allservices/opentop_2.jpg'
 
 

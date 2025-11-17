@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 // Assuming images, projects, testimonials, and Form are correctly imported
 import images from '../assets/images';
 import { projects, testimonials } from './data';
-import Form from '../components/Form';
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Factory, Smartphone } from 'lucide-react';
 

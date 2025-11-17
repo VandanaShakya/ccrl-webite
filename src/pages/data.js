@@ -415,7 +415,7 @@ export const pricingTiers = [
     buttonStyle: "bg-gray-200 text-gray-700 hover:bg-[#3B82F6] hover:text-white", // Gray button for non-featured
   },
   {
-    name: "STANDARD HOURS",
+    name: "Zone 1 & Zone 2",
     subtitle: "(Mon–Fri, 09:00–18:00)",
     price: "£252",
     zone: "London Zone 1",

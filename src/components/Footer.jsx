@@ -39,13 +39,13 @@ const Footer = () => {
       {/* Column 1: Brand Info / About Us */}
       <div className="w-full flex flex-col">
         <div className="flex items-center mb-4">
-          <div className="h-10 w-20 flex items-center justify-center mr-2">
+          {/* <div className="h-10 w-20 flex items-center justify-center mr-2">
             <img
               src={images.logo}
               alt="logo"
               className="h-10 w-20 object-contain"
             />
-          </div>
+          </div> */}
           <h3 className="text-xl font-bold text-white uppercase leading-tight">
             Commercial <br /> Catering Repairs Ltd
           </h3>

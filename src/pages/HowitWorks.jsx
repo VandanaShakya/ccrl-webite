@@ -223,8 +223,7 @@ const scrollOptions = scrollTarget
         {/* Note */}
        <div className="mt-8 p-4 flex justify-center">
   <p className="text-sm text-gray-600 italic text-center max-w-md">
-    <span className="font-semibold">⚠️ Note:</span> All prices include congestion
-    charges and parking where applicable.
+    <span className="font-semibold">⚠️ Note:</span> Aditional hour will we charged at £120 per hour including VAT.
   </p>
 </div>
 

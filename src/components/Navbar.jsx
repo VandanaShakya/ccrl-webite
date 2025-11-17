@@ -133,10 +133,12 @@ const Navbar = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
             {/* LOGO */}
             <div className="flex items-center space-x-2">
-              <Link to="/">
+              {/* <Link to="/">
                 <img src={images.logo} className="h-10 w-25" alt="CCRL Logo" />
-              </Link>
-              <span className="text-2xl font-bold tracking-wider text-white">CCRL</span>
+              </Link> */}
+             <Link to="/">
+                 <span className="text-2xl font-bold tracking-wider text-white">CCRL</span>
+             </Link>
             </div>
 
             {/* DESKTOP NAV LINKS */}

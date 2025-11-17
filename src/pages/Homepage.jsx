@@ -126,7 +126,7 @@ const Homepage = () => {
     className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 font-light text-gray-200 max-w-2xl"
   >
     At Commercial Catering Repairs Ltd, we specialize in professional repair, servicing, and maintenance
-    of all types of commercial kitchen equipment. Our skilled engineers ensure your business runs smoothly
+    of all types of commercial kitchen equipment in around Greater London. Our skilled engineers ensure your business runs smoothly
     with reliable, efficient, and safety-compliant solutions.
   </motion.p>
 

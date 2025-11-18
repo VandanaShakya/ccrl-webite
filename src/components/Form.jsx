@@ -14,9 +14,9 @@ export default function Form() {
     user_message: "",
   });
 
-  const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
-  const PUBLIC_KEY = import.meta.env.EMAILJS_PUBLIC_KEY;
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   function handleChange(e) {
     setForm((s) => ({ ...s, [e.target.name]: e.target.value }));

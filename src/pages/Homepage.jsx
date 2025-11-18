@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-// Assuming images, projects, testimonials, and Form are correctly imported
 import images from '../assets/images';
+import emailjs from "@emailjs/browser";
 import { projects, testimonials } from './data';
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Factory, Smartphone } from 'lucide-react';
@@ -11,6 +11,69 @@ const ACCENT_FOCUS_RING = 'focus:ring-blue-500';
 
 
 const Homepage = () => {
+
+
+
+  // form handling logic //
+  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({
+    user_name: "",
+    user_email: "",
+    user_subject: "",
+    user_message: "",
+  });
+
+  // Read Vite env vars (must start with VITE_)
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  }
+
+  async function sendEmail(e) {
+    e.preventDefault();
+
+    // optional simple validation (already have required attributes)
+    if (!form.user_name || !form.user_email || !form.user_message) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    setSending(true);
+
+    // Prepare template params — match these to your EmailJS template variables
+    const templateParams = {
+      user_name: form.user_name,
+      user_email: form.user_email,
+      user_subject: form.user_subject,
+      user_message: form.user_message,
+      // you can add extra fields if your template uses them, e.g. sent_at
+      sent_at: new Date().toISOString(),
+    };
+
+    try {
+      // Use emailjs.send(serviceID, templateID, templateParams, publicKey)
+      const resp = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      // success
+      console.log("EmailJS response:", resp);
+      // reset form or give success UI
+      setForm({
+        user_name: "",
+        user_email: "",
+        user_subject: "",
+        user_message: "",
+      });
+      alert("Message sent! — Thanks.");
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      alert("Sorry — something went wrong sending the message. Check console for details.");
+    } finally {
+      setSending(false);
+    }
+  }
   // services (Projects Filter Logic)
   const [activeFilter, setActiveFilter] = useState('All projects');
   const filters = ['All projects', 'Stoves', 'Fridges & freezers', 'Rational ovens'];
@@ -80,7 +143,6 @@ const Homepage = () => {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
-
   return (
     <>
       {/* Hero Section */}
@@ -428,46 +490,64 @@ const Homepage = () => {
 
 
         {/* Contact Form Section */}
-   <div className="w-full xl:w-8/12">
-  <form className="space-y-3">
-    {/* Name + Email side by side */}
-    <div className="flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0">
-      <input
-        type="text"
-        placeholder="Name"
-        className={`w-full p-2 sm:p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        className={`w-full p-2 sm:p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-      />
+ <div className="w-full xl:w-8/12">
+      <form onSubmit={sendEmail} className="space-y-3">
+        {/* Name + Email side by side */}
+        <div className="flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0">
+          <input
+            name="user_name"
+            type="text"
+            placeholder="Name"
+            value={form.user_name}
+            onChange={handleChange}
+            required
+            className={`w-full p-2 sm:p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+          />
+          <input
+            name="user_email"
+            type="email"
+            placeholder="Email"
+            value={form.user_email}
+            onChange={handleChange}
+            required
+            className={`w-full p-2 sm:p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+          />
+        </div>
+
+        {/* Subject */}
+        <input
+          name="user_subject"
+          type="text"
+          placeholder="Subject"
+          value={form.user_subject}
+          onChange={handleChange}
+          className={`w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+        />
+
+        {/* Message */}
+        <textarea
+          name="user_message"
+          placeholder="Message"
+          rows="3"
+          value={form.user_message}
+          onChange={handleChange}
+          required
+          className={`w-full p-2 border border-[#2B7FFF] rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
+          style={{ minHeight: "120px" }}
+        />
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={sending}
+          className={`w-full hover:cursor-pointer sm:w-auto px-6 py-2 text-white font-semibold rounded-lg ${ACCENT_BG_CLASS} transition duration-150 shadow-md ${
+            sending ? "opacity-60 cursor-not-allowed" : ""
+          }`}
+        >
+          {sending ? "SENDING..." : "SUBMIT"}
+        </button>
+      </form>
     </div>
-
-    {/* Subject */}
-    <input
-      type="text"
-      placeholder="Subject"
-      className={`w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-    />
-
-    {/* Message */}
-    <textarea
-      placeholder="Message"
-      rows="3"
-      className={`w-full p-2 border border-[#2B7FFF] rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-opacity-50 ${ACCENT_FOCUS_RING} text-gray-700`}
-      style={{ minHeight: "120px" }}
-    />
-
-    {/* Submit Button */}
-    <button
-      type="submit"
-      className={`w-full hover:cursor-pointer sm:w-auto px-6 py-2 text-white font-semibold rounded-lg ${ACCENT_BG_CLASS} transition duration-150 shadow-md`}
-    >
-      SUBMIT
-    </button>
-  </form>
-</div>
 
 
       </div>

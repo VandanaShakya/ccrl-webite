@@ -24,9 +24,9 @@ const Homepage = () => {
   });
 
   // Read Vite env vars (must start with VITE_)
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const SERVICE_ID = import.meta.env.EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.EMAILJS_PUBLIC_KEY;
 
   function handleChange(e) {
     const { name, value } = e.target;
